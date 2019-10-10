@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="custom-style.css">
+
+</head>
+<body>
+    <div id="main">
+        <div class="input-group mb-3">
+            <div class="card">
+                <h5>Add New Product</h5>
+                <div class="card-header">
+                    <input type="text" id="item" class="form-control col-sm-9 mr-3" placeholder="New Product" aria-label="New Product" aria-describedby="button-addon2" ng-model="item">
+                    <button class="btn btn-primary col-sm-2 bg-success border-0 mb-2" type="button" id="button-addon2" onclick="addItem(item.value); item.value = null;">Add</button>
+                </div>
+                <br>
+                <h5>Display All Product</h5>
+            </div>
+        </div>
+        <div>
+            <table id="dtProducts" class="table table-striped border-top-0" cellspacing="0" width="100%">
+              <thead>
+                <tr class="border-top-0">
+                  <th scope="col">#</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col"></th>
+                  <th scope="col"><span id="countItem" class="text-danger"></span></th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+              </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
