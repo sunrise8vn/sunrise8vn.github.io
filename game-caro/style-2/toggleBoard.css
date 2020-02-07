@@ -1,0 +1,50 @@
+.toggleSwitch {
+  clear: both;
+}
+
+#toggleBoardLeft, #toggleBoardRight {
+  opacity: 0;
+}
+
+.label {
+  display: inline-block;
+  background: #878787;
+  width: 4em;
+  height: 1.2em;
+  border-radius: 0.8em;
+  position: relative;
+  cursor: pointer;
+  background: #878787;
+}
+
+#switchBoardLeft, #switchBoardRight {
+  position: absolute;
+  width: 1.9em;
+  height: 1.9em;
+  margin-top: -0.3em;
+  margin-left: -0.1em;
+  border-radius: 1em;
+  background: #c9c9c9;
+  box-shadow: 5px 0px 28px -9px rgba(0, 0, 0, 0.75);
+  transition: transform 0.2s ease-in;
+}
+
+#toggleBoardLeft:checked ~ .label {
+  background: #7ba272;
+}
+
+#toggleBoardRight:checked ~ .label {
+  background: #cb929a;
+}
+
+#toggleBoardLeft:checked ~ .label #switchBoardLeft {
+  background: #6cbd5a;
+  transform: translatex(2.5em);
+  transition: transform 0.2s ease-in;
+}
+
+#toggleBoardRight:checked ~ .label #switchBoardRight {
+  background: #ba5460;
+  transform: translatex(2.5em);
+  transition: transform 0.2s ease-in;
+}

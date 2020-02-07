@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caro Game</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="toggleBoard.css">
+    <link rel="stylesheet" type="text/css" href="gameBoard.css">
+    <link rel="stylesheet" type="text/css" href="modal.css">
+</head>
+<body>
+    <!-- The Modal -->
+    <div id="winModal" class="modal">
+        <button id="btnWin" class="close">You win!</button>
+    </div>
+    <div class="mainInfo" >
+        <h2>Checkerboard position</h2>
+        <div class="toggleSwitch" style="width: 100%">
+            <div style="float: right; width: 50%; text-align: left;">
+                <p style="margin-top: -5px;">
+                  <input id="toggleBoardLeft" type="checkbox" checked onclick="toggleBoardLeft()"/>
+                  <label class="label" for="toggleBoardLeft">
+                      <span id="switchBoardLeft"></span>
+                  </label>
+                </p>
+            </div>
+            <div style="float: right; margin-right: 20px;">
+                <p>Left</p>
+            </div>
+        </div>
+        <div class="toggleSwitch" style="width: 100%">
+            <div style="float: right; width: 50%; text-align: left;">
+                <p style="margin-top: -5px;">
+                  <input id="toggleBoardRight" type="checkbox" onclick="toggleBoardRight()"/>
+                  <label class="label" for="toggleBoardRight">
+                      <span id="switchBoardRight"></span>
+                  </label>
+                </p>
+            </div>
+            <div style="float: right; margin-right: 20px;">
+                <p>Right</p>
+            </div>
+        </div>
+        <div style="float: left; width: 100%; margin-top: 20px;">
+            <input type="button" class="in-btn" value="Set checkerboard position" onclick="setBoardPosition();">
+        </div>
+
+        <div style="float: left; margin-top: 20px; width: 100%">
+            <h3 style="margin-top: 0px;">Square chess board size </h3>
+            <p><input type="number" id="wBoard" value="12" onchange="limiterSizeBoard(this);"></p>  
+        </div>
+        <div style="float: left; width: 100%">
+            <h3 style="margin-top: 0px;">Number of winning points </h3>
+            <p><input type="number" id="wLine" maxlength="1" value="4" onchange="limiterLine(this);"></p>  
+        </div>
+        
+        <div style="float: left; width: 100%; margin-top: 20px;">
+            <input id="createBoard" type="button" class="in-btn" value="Create Board" onclick="setup();">
+        </div>
+    </div> 
+    <!-- end mainInfo -->
+    <div class="container"  id="main">
+       <!-- <div class="box" id="box1"></div> -->
+    </div>
+    
+
+    <script>
+        var widthBoard = 0;
+        var widthLine = 0;
+        var score = 0;
+
+        const state = {
+            current : 0,
+            gameReady : 1,
+            gameOver : 2
+        }
+
+        function limiterSizeBoard(input) {
+           if (input.value < 6) input.value = 6;
+        }
+
+        function limiterLine(input) {
+           if (input.value < 3) input.value = 3;
+           if (input.value > 8) input.value = 8;
+        }
+
+        function setup() {
+            var wBoard = parseInt(document.getElementById('wBoard').value);
+            widthLine = parseInt(document.getElementById('wLine').value);
+
+            $('#main').empty();
+            $(".container").css('width', wBoard * 50);
+            widthBoard = Math.pow(wBoard, 2);
+
+            for (let i = 1; i <= widthBoard; i++) {
+                createBox('box', 'box' + i);
+            }
+
+            function createBox(c, i) {
+                // c->class, i->id
+                var node = document.createElement("div");
+                node.classList.add(c);
+                node.id = i;
+                document.getElementById("main").appendChild(node);
+            }
+
+            var btnPlay = document.createElement("button");
+            btnPlay.innerHTML = "Play";
+            document.getElementById("main").appendChild(btnPlay);
+            btnPlay.addEventListener ("click", function() {
+                state.current = state.gameReady;
+                playGame();
+                $(this).hide();
+                document.getElementById('createBoard').value = "Restart";
+            });
+        }
+
+        function playGame() {
+            var boxes = document.querySelectorAll("#main .box");
+            var X_or_O = 0;
+
+            for(var i = 0; i < boxes.length; i++){
+                boxes[i].onclick = function() {
+                    if (state.current == state.gameReady) {                  
+                        if (this.innerHTML !== "X" && this.innerHTML !== "O") {
+                            if(X_or_O % 2 === 0) {
+                                this.innerHTML = "X";
+                                $(this).css('color', "red");
+                                if (getWinner() == true) { 
+                                    endGame(this.innerHTML);
+                                }
+                                X_or_O += 1;
+                            } else {
+                                this.innerHTML = "O";
+                                $(this).css('color', "blue");
+                                if (getWinner() == true) { 
+                                    endGame(this.innerHTML);
+                                }
+                                X_or_O -= 1;
+                            }
+                        }
+                        else {
+                            $("#box" + i).css('color', "red");
+                        }
+                    }
+                }
+            }
+        }
+
+        function getWinner() {
+            var maxCheckPoint = 0;
+            if (state.current == state.gameReady) {            
+                for (let i = 1; i <= widthBoard; i++) {
+                    this["box" + i] = document.getElementById("box" + i);
+                }
+
+                // check rows
+                maxCheckPoint = widthBoard - widthLine + 1;
+                for (let i = 1; i <= maxCheckPoint; i += 1) {
+                    score = 0;
+                    if (this["box" + i].innerHTML !== "") {
+                        for (let n = i; n < i + widthLine; n++) {
+                            if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                                score++;
+                                if (score == widthLine) {
+                                    return true;
+                                }
+                            }
+                            else {
+                                score = 0;
+                            }
+                        }
+                    }
+                }
+
+                // check cols  
+                maxCheckPoint = Math.sqrt(widthBoard) * (Math.sqrt(widthBoard) - widthLine + 1);
+                for (let i = 1; i <= maxCheckPoint; i += 1) {
+                    score = 0;
+                    if (this["box" + i].innerHTML !== "") {
+                        for (let n = i; n <= widthBoard; n += Math.sqrt(widthBoard)) {
+                            if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                                score++;
+                                if (score == widthLine) {
+                                    return true;
+                                }
+                            }
+                            else {
+                                score = 0;
+                            }
+                        }
+                    }
+                }
+
+                // check diagonal line down right
+                maxCheckPoint = Math.sqrt(widthBoard) * (Math.sqrt(widthBoard) - widthLine + 1) - widthLine + 1;
+                for (let i = 1; i <= maxCheckPoint; i += 1) {
+                    score = 0;
+                    if (this["box" + i].innerHTML !== "") {
+                        for (let n = i; n <= widthBoard; n += Math.sqrt(widthBoard) + 1) {
+                            if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                                score++;
+                                if (score == widthLine) {
+                                    return true;
+                                }
+                            }
+                            else {
+                                score = 0;
+                            }
+                        }
+                    }
+                }
+
+                // check diagonal line down left
+                maxCheckPoint = Math.sqrt(widthBoard) * (Math.sqrt(widthBoard) - 2);
+                for (let i = 1; i <= maxCheckPoint; i += 1) {
+                    score = 0;
+                    if (this["box" + i].innerHTML !== "") {
+                        for (let n = i; n <= widthBoard; n += Math.sqrt(widthBoard) - 1) {
+                            if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                                score++;
+                                if (score == widthLine) {
+                                    return true;
+                                }
+                            }
+                            else {
+                                score = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function endGame(player) {
+            state.current = state.gameOver;
+            var boxes = document.querySelectorAll("#main .box");
+            $("#winModal").css('display', "block");
+            var btnWin = document.getElementById("btnWin");
+            btnWin.innerHTML = player + " is the winner";
+            btnWin.onclick = function() {
+                $("#winModal").css('display', "none");
+            }
+
+            /*When the user clicks anywhere outside of the modal, close it*/
+            // var modal = document.getElementById("winModal");
+            // window.onclick = function(event) {
+            //     if (event.target == modal) {
+            //         modal.style.display = "none";
+            //     }
+            // }
+        }
+
+    </script>
+    <script type="text/javascript" src="toggleBoardSwitch.js"></script>
+</body>
+</html>

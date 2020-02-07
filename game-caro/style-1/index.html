@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="flipswitch.css">
+    <style>
+        *{box-sizing: border-box}
+        input {
+            font-size: 20px;
+            padding: 5px;
+        }
+        button {
+            font-size: 20px;
+            padding: 5px;
+        }
+        .in-btn {
+            color: #FFFFFF;
+            background-color: #2196F3;
+            border: none;
+            display: inline-block;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+            width: 65%;
+        }
+        .in-btn:hover {
+            box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .mainInfo {
+            margin: 20px auto 0 auto;
+            width: 30%;
+            float: right;
+            text-align: center;
+        }
+        .container {
+            /*width: 600px;*/
+            overflow: hidden;
+            margin: 20px auto 0 auto;
+            background-color: #F9E294;
+            box-shadow: 4px 5px 3px #f5c31b;
+        }
+        .container .box {   
+            float: left;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            transition: all .25s ease-in-out; font-family: sans-serif; font-size: 45px; text-align: center;
+            line-height: 50px; 
+            cursor: pointer;
+            
+        }
+        .container .box:hover {
+            background-color: #f9cd3a;
+        }
+   </style>
+</head>
+<body>
+    <div class="mainInfo" >
+        <h2>Checkerboard position</h2>
+        <div class="flipswitch" style="margin: 0px auto">
+            <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked onclick="flipswitch()">
+            <label class="flipswitch-label" for="fs">
+                <div class="flipswitch-inner"></div>
+                <div class="flipswitch-switch"></div>
+            </label>
+        </div>
+        <div style="float: left; margin-top: 20px; width: 100%">
+            <h3 style="margin-top: 0px;">Square chess board size </h3>
+            <p><input type="text" id="wBoard"></p>  
+        </div>
+        <div style="float: left; width: 100%">
+            <h3 style="margin-top: 0px;">Number of winning points </h3>
+            <p><input type="text" id="wLine"></p>  
+        </div>
+        
+        <div style="float: left; width: 100%; margin-top: 20px;">
+          <!-- <button id="abc" class="in-btn" style="width: 65%">Create Board</button> -->
+            <input type="button" class="in-btn" value="Create Board" onclick="playGame();">
+        </div>
+    </div>
+    <div class="container"  id="main">
+        
+       <!-- <div class="box" id="box1"></div> -->
+    </div>
+    <script>
+        function playGame() {
+          var widthBoard = 0;
+          var widthLine = 0;
+          var winner = false;
+          var scores = 0;
+          var pointMaxCheck = 0;
+          var wBoard = parseInt(document.getElementById('wBoard').value);
+          var wLine = parseInt(document.getElementById('wLine').value);
+
+          $('#main').empty();
+          $(".container").css('width', wBoard * 50);
+          widthBoard = Math.pow(wBoard, 2);
+
+          for (let i = 1; i <= widthBoard; i++) {
+              createBox('box', 'box' + i);
+          }
+
+          widthLine = wLine;
+
+          function createBox(c, i) {
+              // c->class, i->id
+              var node = document.createElement("div");
+              node.classList.add(c);
+              node.id = i;
+              document.getElementById("main").appendChild(node);
+          }
+
+          function getWinner(pointMaxCheck, n2, n3) {
+              for (let i = 1; i <= widthBoard; i++) {
+                  this["box" + i] = document.getElementById("box" + i);
+              }
+
+              // check rows
+              pointMaxCheck = widthBoard - widthLine + 1;
+              for (let i = 1; i <= pointMaxCheck; i += 1) {
+                  scores = 0;
+                  if (this["box" + i].innerHTML !== "") {
+                      for (let n = i; n < i + widthLine; n++) {
+                          if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                              scores++;
+                              if (scores == widthLine) {
+                                  winner = true;
+                                  return winner;
+                              }
+                          }
+                          else {
+                              scores = 0;
+                          }
+                      }
+                  }
+              }
+
+              // check cols  
+              var pointMaxCheck = Math.sqrt(widthBoard) * (Math.sqrt(widthBoard) - widthLine + 1);
+              for (let i = 1; i <= pointMaxCheck; i += 1) {
+                  scores = 0;
+                  if (this["box" + i].innerHTML !== "") {
+                      for (let n = i; n <= widthBoard; n += Math.sqrt(widthBoard)) {
+                          if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                              scores++;
+                              if (scores == widthLine) {
+                                  winner = true;
+                                  return winner;
+                              }
+                          }
+                          else {
+                              scores = 0;
+                          }
+                      }
+                  }
+              }
+
+              // check diagonal line down right
+              pointMaxCheck = Math.sqrt(widthBoard) * (Math.sqrt(widthBoard) - widthLine + 1) - widthLine + 1;
+              for (let i = 1; i <= pointMaxCheck; i += 1) {
+                  scores = 0;
+                  if (this["box" + i].innerHTML !== "") {
+                      for (let n = i; n <= widthBoard; n += Math.sqrt(widthBoard) + 1) {
+                          if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                              scores++;
+                              if (scores == widthLine) {
+                                  winner = true;
+                                  return winner;
+                              }
+                          }
+                          else {
+                              scores = 0;
+                          }
+                      }
+                  }
+              }
+
+              // check diagonal line down left
+              pointMaxCheck = Math.sqrt(widthBoard) * (Math.sqrt(widthBoard) - 2);
+              for (let i = 1; i <= pointMaxCheck; i += 1) {
+                  scores = 0;
+                  if (this["box" + i].innerHTML !== "") {
+                      for (let n = i; n <= widthBoard; n += Math.sqrt(widthBoard) - 1) {
+                          if (this["box" + i].innerHTML === this["box" + n].innerHTML) {  
+                              scores++;
+                              if (scores == widthLine) {
+                                  winner = true;
+                                  return winner;
+                              }
+                          }
+                          else {
+                              scores = 0;
+                          }
+                      }
+                  }
+              }
+          }
+
+          var boxes = document.querySelectorAll("#main .box");
+          var X_or_O = 0;
+
+          for(var i = 0; i < boxes.length; i++){
+              boxes[i].onclick = function() {
+                  if (this.innerHTML !== "X" && this.innerHTML !== "O") {
+                      if(X_or_O % 2 === 0) {
+                          this.innerHTML = "X";
+                          $(this).css('color', "red");
+                          if (getWinner() == true) { 
+                              alert(this.innerHTML + " win "); 
+                          }
+                          X_or_O += 1;
+                      } else {
+                          this.innerHTML = "O";
+                          $(this).css('color', "blue");
+                          if (getWinner() == true) { alert(this.innerHTML + " win "); }
+                          X_or_O -= 1;
+                      }
+                  }
+                  else {
+                      $("#box" + i).css('color', "red");
+                  }
+              }
+          }
+      }
+    </script>
+    <script type="text/javascript" src="flipswitch.js"></script>
+</body>
+</html>
