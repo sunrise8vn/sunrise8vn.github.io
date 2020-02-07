@@ -1,0 +1,134 @@
+#main {
+	margin: auto;
+	width: 100%;
+}
+
+.row {
+     margin-right: 0; 
+     margin-left: -15px; 
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+#treasure {
+	height: 660px;
+	display: inline-block;
+	position:relative; 
+}
+
+#adam {
+	height: 250px;
+	top: -250px;
+	text-align: right;
+}
+
+#adam img {
+	width: 100px;
+	height: 250px;
+	max-width: 250px;
+}
+
+#eva {
+	top: -230px;
+    padding-left: 50px;
+}
+
+#eva img {
+	width: 80px;
+	height: 230px;
+  max-width: 230px;
+}
+
+#adam-info {
+	position: relative;;
+	margin-top: -350px;
+	margin-left: 50px;
+}
+
+p {
+	font-weight: bold;
+	color: white;
+	font-size: 20px;
+}
+
+#eva-info {
+	position: relative;;
+	margin-top: -350px;
+	margin-left: -50px;
+}
+
+#apple {
+	position: absolute;
+}
+
+.apple {
+	background-image: url('apple.png');
+	background-repeat: no-repeat;
+	width: 32px;
+	height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  color: white;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.draggable
+{
+    filter: alpha(opacity=60);
+    /*opacity: 0.6;*/
+}
+.dropped
+{
+    position: static !important;
+}
+
+.show {
+	display: none !important;
+}
+.sample-image-large {
+    width: 20% !important;
+}
+
+.note {
+  	position: relative;
+    padding: 1em 1.5em;
+    color: #fff;
+    background: #97C02F;
+    overflow: hidden;
+    /*opacity: 0.7;*/
+    /*margin-left: 50px;*/
+}
+
+.note:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #fff #b4e7d6 #658E15 #658E15;
+  background: #658E15;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  /* Firefox 3.0 damage limitation */
+  display: block; width: 0;
+}
+
+.note.rounded {
+  -moz-border-radius: 5px 0 5px 5px;
+  border-radius: 5px 0 5px 5px;
+}
+
+.note.rounded:before {
+  border-width: 8px;
+  border-color: #fff #fff transparent transparent;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
