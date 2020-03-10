@@ -48,7 +48,7 @@ readTextFile("json/product.json", function (text) {
         			'</div>'+
         			'<div class="">'+
         				'<p><b>'+data[i].name+'</b></p>'+
-        				'<p>'+data[i].price+' vnđ</p>'+
+        				'<p>'+addCommas(data[i].price)+' vnđ</p>'+
         			'</div>'+
         		'</div>';
     }
@@ -87,13 +87,11 @@ readTextFile("json/bill.detail.json", function (text) {
 			    	'<p>Giá: '+addCommas(data[i].item_price)+' vnđ</p>'+
 		    	'</div>'+
 				'<div class="col-md-3" style="text-align: center;">'+
-				    // '<p>'+
-						'<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
-						'<span>'+
-						data[i].item_quantity +
-						'</span>'+
-						'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
-					// '</p>'+
+					'<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+					'<span>'+
+					data[i].item_quantity +
+					'</span>'+
+					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
 			    '</div>'+
 			    '<div class="col-md-4" style="text-align: right;">'+
 				    '<p>'+addCommas(data[i].item_price)+' vnđ</p>'+

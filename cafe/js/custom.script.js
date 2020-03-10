@@ -83,16 +83,18 @@ $( document ).ready(function() {
             
 	    	let str = '' +
 		    	'<div class="bill-items">' +
-			    '<div class="col-md-7">'+
+			    '<div class="col-md-5">'+
 			    '<p>'+name+'</p>'+
 			    '<p>Giá: '+addCommas(price)+' vnđ</p>'+
 			    '</div>'+
-			    '<div class="col-md-1" style="text-align: center;">'+
-			    '<p>&nbsp;</p>'+
-			    '<p>1</p>'+
+			    '<div class="col-md-3" style="text-align: center;">'+
+			    	'<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+					'<span>'+
+					'1' +
+					'</span>'+
+					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
 			    '</div>'+
 			    '<div class="col-md-4" style="text-align: right;">'+
-			    '<p>&nbsp;</p>'+
 			    '<p>'+addCommas(price)+' vnđ</p>'+
 			    '</div>'+
 			    '</div>';
@@ -102,16 +104,18 @@ $( document ).ready(function() {
 			let str = '';
 			for (var i = 0; i < table01.length; i++) {
 			    str += '<div class="bill-items">' +
-				    '<div class="col-md-7">'+
+				    '<div class="col-md-5">'+
 				    '<p>'+table01[i].item_name+'</p>'+
 				    '<p>Giá: '+addCommas(table01[i].item_price)+' vnđ</p>'+
 				    '</div>'+
-				    '<div class="col-md-1" style="text-align: center;">'+
-				    '<p>&nbsp;</p>'+
-				    '<p>'+table01[i].item_quantity+'</p>'+
+				    '<div class="col-md-3" style="text-align: center;">'+
+				    '<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+					'<span>'+
+					table01[i].item_quantity +
+					'</span>'+
+					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
 				    '</div>'+
 				    '<div class="col-md-4" style="text-align: right;">'+
-				    '<p>&nbsp;</p>'+
 				    '<p>'+addCommas(table01[i].money)+' vnđ</p>'+
 				    '</div>'+
 				    '</div>';
