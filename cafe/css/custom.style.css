@@ -136,7 +136,6 @@ p {
     }
     .item {
         height: auto !important;
-        margin: 6px !important;
     }
 
 }
@@ -147,8 +146,8 @@ p {
         display: none;
     }
     .item {
+        width: 31% !important;
         height: auto !important;
-        margin: 5px !important;
     }
 }
 
@@ -158,9 +157,8 @@ p {
         display: none;
     }
     .item {
-        width: 30% !important;
+        width: 48% !important;
         height: auto !important;
-        margin: 3px !important;
     }
 }
 
@@ -242,9 +240,9 @@ a:hover {
 
 .item {
     width: 23%;
+    margin: 1%;
     background: #fff;
     float: left;
-    margin: 7px;
     padding-bottom: 10px;
     border-radius: 10px;
     position: relative;
@@ -352,7 +350,7 @@ a:hover {
 }
 
 .sub-total-money {
-    display: flow-root;
+    display: flex;
     padding: 10px 0px;
     border-bottom: solid 2px #f1f1f1;
 }
