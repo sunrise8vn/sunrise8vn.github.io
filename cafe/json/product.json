@@ -26,5 +26,36 @@
 		"name": "Cà phê sữa sài gòn",
 		"price": 18000,
 		"avatar": "glass-blue.jpg"
+	},
+	{
+		"id": 5,
+		"group_id": 1,
+		"name": "Espresso Black",
+		"price": 16000,
+		"avatar": "glass-blue.jpg"
+	},
+	{
+		"id": 6,
+		"group_id": 1,
+		"name": "Espresso White",
+		"price": 20000,
+		"avatar": "glass-blue.jpg"
 	}
+	,
+	{
+		"id": 7,
+		"group_id": 2,
+		"name": "Lipton nóng",
+		"price": 20000,
+		"avatar": "glass-blue.jpg"
+	}
+	,
+	{
+		"id": 8,
+		"group_id": 2,
+		"name": "Lipton đá",
+		"price": 20000,
+		"avatar": "glass-blue.jpg"
+	}
+
 ]

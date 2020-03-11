@@ -108,6 +108,12 @@ p {
     opacity: 1;
 }
 
+
+@media (min-width: 1024px) {
+
+}
+
+/* Tablet & Mobile*/
 @media (max-width: 1023px) {
     .nav__bars-btn {
         display: block;
@@ -123,6 +129,38 @@ p {
 
     .main-order-left, .main-order-rigt {
         max-width: 100%;
+    }
+
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+    .item {
+        height: auto !important;
+        margin: 6px !important;
+    }
+
+}
+
+/*Tablet*/
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }
+    .item {
+        height: auto !important;
+        margin: 5px !important;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+    .item {
+        width: 30% !important;
+        height: auto !important;
+        margin: 3px !important;
     }
 }
 
@@ -145,6 +183,7 @@ p {
     background-color: #223a6f;
     margin-top: 48px;
     z-index: 50;
+    display: flow-root;
 }
 
 .list-table {
@@ -186,15 +225,14 @@ a:hover {
 }
 
 
-.main-order-left {
+.main-order-left, .main-order-right {
+    margin-bottom: 20px;
     float: left;
 }
 
-.main-order-right {
-    float: left;
-}
 
 .main-order {
+    width: 100%;
     display: none;
 }
 
@@ -202,28 +240,27 @@ a:hover {
     margin-top: 20px;
 }
 
-.order-item {
+.item {
     width: 23%;
     background: #fff;
-    height: 200px;
     float: left;
     margin: 7px;
+    padding-bottom: 10px;
     border-radius: 10px;
     position: relative;
     display: block;
 }
 
-.order-item div {
+.item div {
     width: 100%;
     text-align: center;
 }
 
 .item-img, .item-btn {
-    height: 65%;
     padding: 20px 0px;
 }
 
-.order-item .item-btn {
+.item .item-btn {
     display: none;
     position: absolute;
     border-radius: 10px;
@@ -233,13 +270,11 @@ a:hover {
     background-color: #fff;
 }
 
-.order-item:hover .item-btn {
+.item:hover .item-btn {
     display: inline;
 }
 
-
-
-.order-group-item {
+.group-items, .order-group-item {
     display: flex;
     margin-bottom: 20px;
 }
@@ -252,7 +287,20 @@ a:hover {
     border-radius: 15px;
 }
 
-.main-order-left .order-group-item .active {
+.group-list-items {
+    display: flex;
+}
+
+.group-list-items .list-items {
+    width: 100%;
+    display: none;
+}
+
+.group-list-items .active {
+    display: block;
+}
+
+.main-order-left .group-items .active {
     background-color: #fc9f62;
 }
 
@@ -356,3 +404,6 @@ a:hover {
     display: none;
 }
 
+.btn-success:hover .col-md-5 {
+    display: none;
+}

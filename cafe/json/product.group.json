@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"name": "Coffee",
+		"permalink": "coffee"
+	},
+	{
+		"id": 2,
+		"name": "Tea",
+		"permalink": "tea"
+	},
+	{
+		"id": 3,
+		"name": "Beer",
+		"permalink": "beer"
+	},
+	{
+		"id": 4,
+		"name": "Fruit",
+		"permalink": "fruit"
+	}
+]

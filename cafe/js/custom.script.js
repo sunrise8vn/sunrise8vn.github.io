@@ -7,18 +7,31 @@ $( document ).ready(function() {
     	return false;
     });
 
-    $(".bill-items").draggable();
+    $(".group-item a").on("click", function() {
+    	$(".group-item").removeClass("active");
+    	$(this).parent().addClass("active");
+    	$(".list-items").css("display", "none");
+    	$($(this).attr("href")).css("display", "block");
+    	return false;
+    });
+
+
+    // $(".bill-items").draggable();
 
     $(".bill-items .col-md-3").click(function() {
-    	$(".bill-items .col-md-3 span").css("font-size", "13px")
+    	$(".bill-items .col-md-3 span").css("font-size", "13px");
     	$(".bill-items .col-md-3 button").css("display", "none");
     	$(".bill-items").css("background-color", "#fff");
     	$(".bill-items").css("color", "#000");
-    	$(this).find("span").css("font-size", "16px")
+    	$(this).find("span").css("font-size", "16px");
     	$(this).parent().css("background-color", "#70cc69");
     	$(this).parent().css("color", "#fff");
     	$('> button', this).css("display", "inline-block");
+
+
     });
+
+
 
     // $(".bill-items .col-md-3").hover(function() {
     // 	$(this).parent().css("background-color", "#70cc69");
@@ -54,7 +67,7 @@ $( document ).ready(function() {
     // 	// $(this).css("background-color", "#fff;");
     // });
 
-    $(".order-items .item-btn .btn").on("click", function() {
+    $(".item .item-btn .btn").on("click", function() {
     	let itemId = $(this).data("id");
     	let name = $(this).data("name");
     	let price = $(this).data("price");
@@ -122,6 +135,6 @@ $( document ).ready(function() {
 			}
 			$("#table-bill-1").html(str);
 		}
-    });
 
+    });
 });
