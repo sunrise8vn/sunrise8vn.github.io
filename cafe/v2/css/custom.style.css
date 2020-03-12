@@ -406,6 +406,15 @@ a:hover {
     display: block;
 }
 
+.group-list-items-mobile .list-items {
+    width: 100%;
+    display: none;
+}
+
+.group-list-items-mobile .active {
+    display: block;
+}
+
 .group-list-items-mobile {
     margin-left: -14px;
     margin-right: -15px;
