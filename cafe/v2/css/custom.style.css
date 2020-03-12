@@ -42,8 +42,7 @@ a:hover {
     padding-bottom: 20px;*/
 }
 
-.nav-top {
-    display: flex;
+#nav-top {
     align-items: center;
     height: 48px;
     background-color: #41b51b;
@@ -51,6 +50,7 @@ a:hover {
     width: 100%;
     top: 0px;
     z-index: 100;
+    transition: top 0.3s;
 }
 
 .nav-bottom {
