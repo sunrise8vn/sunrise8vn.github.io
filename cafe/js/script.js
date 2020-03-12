@@ -6,3 +6,4 @@ function addCommas(nStr) {
     }
     return nStr;
 }
+

@@ -48,7 +48,6 @@ readTextFile("json/product.group.json", function (text) {
     $(".group-items").html(str);
 });
 
-// console.log(groupItemArray);
 
 readTextFile("json/product.json", function (text) {
     let data = JSON.parse(text);
@@ -70,19 +69,44 @@ readTextFile("json/product.json", function (text) {
 		        			'<div class="item-btn">'+
 		        				'<input type="button" class="btn btn-success" value="Thêm" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'" />'+
 		        			'</div>'+
-		        			'<div class="">'+
+		        			'<div class="item-info">'+
 		        				'<p><b>'+items[k].name+'</b></p>'+
 		        				'<p>'+addCommas(items[k].price)+' vnđ</p>'+
 		        			'</div>'+
 		        		'</div>';
 		    }
 		    str += '</div>';
-		    active = '';
+		    // active = '';
 		    $(".group-list-items").append(str);
+
+
+		    str = '<div id="group-item-'+groupItemArray[i]+'" class="list-items'+active+'">';
+		    for(let k = 0; k < j; k++) {
+		    	str += '<div class="item">'+
+		        			'<div class="item-img">'+
+		        				'<img src="images/'+items[k].avatar+'">'+
+		        			'</div>'+
+		        			'<div class="item-info">'+
+		        				'<p><b>'+items[k].name+'</b></p>'+
+		        				'<p>'+addCommas(items[k].price)+' vnđ</p>'+
+		        			'</div>'+
+		        			'<div class="item-btn">'+
+		        				'<button class="btn-minus" style="" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'"><i class="fa fa-minus"></i></button>'+
+    								'<span>0</span>'+
+								'<button class="btn-plus" style="" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'"><i class="fa fa-plus"></i></button>'+
+		        			'</div>'+
+		        		'</div>';
+		    }
+		    str += '</div>';
+		    
+		    active = '';
+		    $(".group-list-items-mobile").append(str);
+
 		}
 		else {
 			let str = '<div id="group-item-'+groupItemArray[i]+'" class="list-items"></div>';
 			$(".group-list-items").append(str);
+			$(".group-list-items-mobile").append(str);
 		}
 	};
 });
