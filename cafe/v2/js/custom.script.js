@@ -26,6 +26,7 @@ $( document ).ready(function() {
     	$(".list-table").height(70);
     	$(".container .main-order-left").css("display", "block");
     	$(".container .main-order-right").eq(0).css("display", "block");
+    	$(".nav_overlay").css("display", "none");
     	return false;
     });
 
@@ -35,6 +36,7 @@ $( document ).ready(function() {
     	$(".container .main-order-left").css("display", "none");
     	$(".container .main-order-right").eq(0).css("display", "none");
     	$(".list-table-extend button").eq(1).css("display", "inline-block");
+    	$(".nav_overlay").css("display", "block");
     })
 
     $(".list-table-extend button").eq(1).on("click", function() {
@@ -43,6 +45,17 @@ $( document ).ready(function() {
     	$(".container .main-order-left").css("display", "block");
     	$(".container .main-order-right").eq(0).css("display", "block");
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
+    	$(".nav_overlay").css("display", "none");
+    })
+
+    $(".nav_overlay").on("click", function() {
+    	$(".list-table").height(70);
+    	$(".list-table-extend button").eq(0).css("display", "inline-block");
+    	$(".list-table-extend button").eq(1).css("display", "none");
+    	$(".container .main-order-left").css("display", "block");
+    	$(".container .main-order-right").eq(0).css("display", "block");
+    	// $(".list-table-extend button").eq(0).css("display", "inline-block");
+    	$(this).css("display", "none");
     })
 
     $(".group-item a").on("click", function() {
@@ -54,7 +67,7 @@ $( document ).ready(function() {
     });
 
 
-    // $(".bill-items").draggable();
+    $(".bill-items").draggable();
 
     $(".bill-items .col-md-3").click(function() {
     	$(".bill-items .col-md-3 span").css("font-size", "13px");
@@ -65,9 +78,9 @@ $( document ).ready(function() {
     	$(this).parent().css("background-color", "#70cc69");
     	$(this).parent().css("color", "#fff");
     	$('> button', this).css("display", "inline-block");
-
-
     });
+
+
 
 
 
