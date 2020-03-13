@@ -317,6 +317,7 @@ a:hover {
     overflow: hidden;
     z-index: 90;
     position: relative;
+    transition: transform linear 3.5s;
 }
 
 .list-table .active {
@@ -325,11 +326,12 @@ a:hover {
 }
 
 .list-table-extend {
+    width: 100%;
+    height: 26px;
     text-align: center;
     z-index: 90;
-    position: relative;
-    clear: both;
-    transition: transform linear 3.5s;
+    position: relative;    
+    display: flow-root;
 }
 
 .num-table {

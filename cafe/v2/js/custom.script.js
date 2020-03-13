@@ -49,6 +49,7 @@ $( document ).ready(function() {
 			    if (st > lastScrollTop && st > navbarHeight){
 			        // Scroll Down
 			        $('#nav-top').addClass('nav-up');
+			        
 			    } else {
 			        // Scroll Up
 			        if(st + $(window).height() < $(document).height()) {
@@ -81,8 +82,8 @@ $( document ).ready(function() {
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".list-table-extend button").eq(1).css("display", "none");
     	$(".list-table").height(70);
-    	$("#container .main-order-left").css("display", "block");
-    	$("#container .main-order-right").eq(0).css("display", "block");
+    	$(".container .main-order-left").css("display", "block");
+    	$(".container .main-order-right").eq(0).css("display", "block");
     	$(".nav_overlay").css("display", "none");
     	return false;
     });
@@ -95,8 +96,8 @@ $( document ).ready(function() {
     	
     	
     	$(this).css("display", "none");
-    	$("#container .main-order-left").css("display", "none");
-    	$("#container .main-order-right").eq(0).css("display", "none");
+    	$(".container .main-order-left").css("display", "none");
+    	$(".container .main-order-right").eq(0).css("display", "none");
     	$(".list-table-extend button").eq(1).css("display", "inline-block");
     	$(".nav_overlay").css("display", "block");
     })
@@ -105,8 +106,8 @@ $( document ).ready(function() {
     	$(".list-table").height(70);
     	$(".list-table").fadeIn(3000);
     	$(this).css("display", "none");
-    	$("#container .main-order-left").css("display", "block");
-    	$("#container .main-order-right").eq(0).css("display", "block");
+    	$(".container .main-order-left").css("display", "block");
+    	$(".container .main-order-right").eq(0).css("display", "block");
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".nav_overlay").css("display", "none");
     })
@@ -115,8 +116,8 @@ $( document ).ready(function() {
     	$(".list-table").height(70);
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".list-table-extend button").eq(1).css("display", "none");
-    	$("#container .main-order-left").css("display", "block");
-    	$("#container .main-order-right").eq(0).css("display", "block");
+    	$(".container .main-order-left").css("display", "block");
+    	$(".container .main-order-right").eq(0).css("display", "block");
     	// $(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(this).css("display", "none");
     })
