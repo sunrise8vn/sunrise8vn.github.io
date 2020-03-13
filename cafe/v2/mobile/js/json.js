@@ -31,6 +31,7 @@ readTextFile("json/table.json", function (text) {
        	active = '';
     }
     $(".list-table-mobile").html(str);
+    changeTable();
 });
 
 readTextFile("json/product.group.json", function (text) {
@@ -46,6 +47,7 @@ readTextFile("json/product.group.json", function (text) {
 		active = '';
     }
     $(".group-items").html(str);
+    changeGroupItem();
 });
 
 
@@ -88,6 +90,35 @@ readTextFile("json/product.json", function (text) {
 	};
 	btnPlus();
 });
+
+function changeTable() {
+	 // Click table on Mobile
+    $(".num-table a").click(function() {
+    	$(".list-table-mobile .num-table").removeClass("active");
+    	$(this).parent().addClass("active");
+    	
+    	$(".main-order").css("display", "none");
+    	$($(this).attr("href")).css("display", "block");
+
+    	$(".list-table-extend-mobile button").eq(0).css("display", "inline-block");
+    	$(".list-table-extend-mobile button").eq(1).css("display", "none");
+    	$(".list-table-mobile").height(70);
+    	$(".container .main-order-left").css("display", "block");
+    	$(".container .main-order-right").eq(0).css("display", "block");
+    	$(".nav_overlay_mobile").css("display", "none");
+    	return false;
+    });
+}
+
+function changeGroupItem() {
+	$(".item-group a").on("click", function() {
+    	$(".item-group").removeClass("active");
+    	$(this).parent().addClass("active");
+    	$(".group-list-items-mobile .list-items").removeClass("active");
+    	$($(this).attr("href")).addClass("active");
+    	return false;
+    });
+}
 
 function btnPlus() {
     $(".item-btn .btn-plus").click(function() {

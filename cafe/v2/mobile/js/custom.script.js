@@ -55,23 +55,23 @@ $( document ).ready(function() {
 	alterClass();
 
 
-    // Click table on Mobile
-    $(".num-table a").click(function() {
-    	$(".list-table-mobile .num-table").removeClass("active");
-    	$(this).parent().addClass("active");
+    // // Click table on Mobile
+    // $(".num-table a").click(function() {
+    // 	$(".list-table-mobile .num-table").removeClass("active");
+    // 	$(this).parent().addClass("active");
     	
-    	$(".main-order").css("display", "none");
-    	$($(this).attr("href")).css("display", "block");
+    // 	$(".main-order").css("display", "none");
+    // 	$($(this).attr("href")).css("display", "block");
 
-    	$(".list-table-extend-mobile button").eq(0).css("display", "inline-block");
-    	$(".list-table-extend-mobile button").eq(1).css("display", "none");
-    	$(".list-table-mobile").height(70);
-    	$(".container .main-order-left").css("display", "block");
-    	$(".container .main-order-right").eq(0).css("display", "block");
-    	$(".nav_overlay_mobile").css("display", "none");
-    	return false;
-    });
-    // End
+    // 	$(".list-table-extend-mobile button").eq(0).css("display", "inline-block");
+    // 	$(".list-table-extend-mobile button").eq(1).css("display", "none");
+    // 	$(".list-table-mobile").height(70);
+    // 	$(".container .main-order-left").css("display", "block");
+    // 	$(".container .main-order-right").eq(0).css("display", "block");
+    // 	$(".nav_overlay_mobile").css("display", "none");
+    // 	return false;
+    // });
+    // // End
 
     // Click extend table on mobile
     $(".list-table-extend-mobile button").eq(0).on("click", function() {
@@ -107,13 +107,13 @@ $( document ).ready(function() {
     	$(this).css("display", "none");
     })
 
-    $(".item-group a").on("click", function() {
-    	$(".item-group").removeClass("active");
-    	$(this).parent().addClass("active");
-    	$(".group-list-items-mobile .list-items").removeClass("active");
-    	$($(this).attr("href")).addClass("active");
-    	return false;
-    });
+    // $(".item-group a").on("click", function() {
+    // 	$(".item-group").removeClass("active");
+    // 	$(this).parent().addClass("active");
+    // 	$(".group-list-items-mobile .list-items").removeClass("active");
+    // 	$($(this).attr("href")).addClass("active");
+    // 	return false;
+    // });
 
 
     // $(".bill-items").draggable();
