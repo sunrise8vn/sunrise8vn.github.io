@@ -198,6 +198,15 @@ a:hover {
         max-width: 100%;
     }
 
+    .main-order-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .menu-order {
+        border-radius: 0 !important;
+    }
+
     .hide-on-mobile-tablet {
         display: none !important;
     }
