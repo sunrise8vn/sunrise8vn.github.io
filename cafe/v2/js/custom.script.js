@@ -9,16 +9,56 @@ $( document ).ready(function() {
 
 		    $(".group-list-items-mobile").insertBefore(".group-list-items");
 
-	      	var prevScrollpos = window.pageYOffset;
-			window.onscroll = function() {
-			  	var currentScrollPos = window.pageYOffset;
-			  	if (prevScrollpos > currentScrollPos) {
-			    	document.getElementById("nav-top").style.top = "0";
-			  	} else {
-			    	document.getElementById("nav-top").style.top = "-48px";
-			  	}
-			  	prevScrollpos = currentScrollPos;
+	      	//	var prevScrollpos = window.pageYOffset;
+			// window.onscroll = function() {
+			//   	var currentScrollPos = window.pageYOffset;
+			//   	if (prevScrollpos > currentScrollPos) {
+			//     	document.getElementById("nav-top").style.top = "0";
+			//     	document.getElementById("container").style.top = "48";
+			//   	} else {
+			//     	document.getElementById("nav-top").style.top = "-48px";
+			//     	document.getElementById("container").style.top = "0";
+			//   	}
+			//   	prevScrollpos = currentScrollPos;
+			// }
+
+			// Hide Header on on scroll down
+			var didScroll;
+			var lastScrollTop = 0;
+			var delta = 5;
+			var navbarHeight = $('#nav-top').outerHeight();
+
+			$(window).scroll(function(event){
+			    didScroll = true;
+			});
+
+			setInterval(function() {
+			    if (didScroll) {
+			        hasScrolled();
+			        didScroll = false;
+			    }
+			}, 250);
+
+			function hasScrolled() {
+			    var st = $(this).scrollTop();
+			    
+			    // Make sure they scroll more than delta
+			    if(Math.abs(lastScrollTop - st) <= delta)
+			        return;
+			    
+			    if (st > lastScrollTop && st > navbarHeight){
+			        // Scroll Down
+			        $('#nav-top').addClass('nav-up');
+			    } else {
+			        // Scroll Up
+			        if(st + $(window).height() < $(document).height()) {
+			            $('#nav-top').removeClass('nav-up');
+			        }
+			    }
+			    
+			    lastScrollTop = st;
 			}
+			// End Hide Header
 	    }
 	    else {
 	    	$(".group-list-items").insertBefore(".group-list-items-mobile");
@@ -41,8 +81,8 @@ $( document ).ready(function() {
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".list-table-extend button").eq(1).css("display", "none");
     	$(".list-table").height(70);
-    	$(".container .main-order-left").css("display", "block");
-    	$(".container .main-order-right").eq(0).css("display", "block");
+    	$("#container .main-order-left").css("display", "block");
+    	$("#container .main-order-right").eq(0).css("display", "block");
     	$(".nav_overlay").css("display", "none");
     	return false;
     });
@@ -55,8 +95,8 @@ $( document ).ready(function() {
     	
     	
     	$(this).css("display", "none");
-    	$(".container .main-order-left").css("display", "none");
-    	$(".container .main-order-right").eq(0).css("display", "none");
+    	$("#container .main-order-left").css("display", "none");
+    	$("#container .main-order-right").eq(0).css("display", "none");
     	$(".list-table-extend button").eq(1).css("display", "inline-block");
     	$(".nav_overlay").css("display", "block");
     })
@@ -65,8 +105,8 @@ $( document ).ready(function() {
     	$(".list-table").height(70);
     	$(".list-table").fadeIn(3000);
     	$(this).css("display", "none");
-    	$(".container .main-order-left").css("display", "block");
-    	$(".container .main-order-right").eq(0).css("display", "block");
+    	$("#container .main-order-left").css("display", "block");
+    	$("#container .main-order-right").eq(0).css("display", "block");
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".nav_overlay").css("display", "none");
     })
@@ -75,8 +115,8 @@ $( document ).ready(function() {
     	$(".list-table").height(70);
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".list-table-extend button").eq(1).css("display", "none");
-    	$(".container .main-order-left").css("display", "block");
-    	$(".container .main-order-right").eq(0).css("display", "block");
+    	$("#container .main-order-left").css("display", "block");
+    	$("#container .main-order-right").eq(0).css("display", "block");
     	// $(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(this).css("display", "none");
     })

@@ -53,6 +53,10 @@ a:hover {
     transition: top 0.3s;
 }
 
+.nav-up {
+    top: -48px !important;
+}
+
 .nav-bottom {
     display: flex;
     align-items: center;
@@ -238,7 +242,7 @@ a:hover {
         display: none;
     }
 
-    .container {
+    #container {
         margin-bottom: 24px !important;
     }
 
@@ -292,7 +296,7 @@ a:hover {
     }
 }
 
-.container {
+#container {
 	width: 1200px;
     min-height: 100vh;
     max-width: 100%;
