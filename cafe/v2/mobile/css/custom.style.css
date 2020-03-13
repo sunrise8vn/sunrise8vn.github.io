@@ -124,6 +124,7 @@ a:hover {
 .nav_mobile-list {
     margin-top: 15px;
     display: flex;
+    margin-left: -38px;
 }
 
 .nav_mobile-list li div {
@@ -138,13 +139,12 @@ a:hover {
 .nav_mobile-link {
     text-decoration: none;
     display: block;
-    padding: 8px 0;
-    font-size: 1.4rem;
+    font-size: 18px;
     color: #fff;
 }
 
-.nav_mobile-link:hover {
-    color: #ffe200;
+.nav_mobile-list li .active {
+    color: #bb2d00;
 }
 
 .nav_mobile-list a span {
@@ -299,7 +299,7 @@ a:hover {
 
 .container {
 	width: 1200px;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     max-width: 100%;
     margin: auto;
     padding: 0px;
@@ -498,8 +498,8 @@ a:hover {
     display: flow-root;
     padding-bottom: 20px;
     border-bottom: solid 2px #f1f1f1;
-    min-height: 150px;
-    max-height: 200px;
+    /*min-height: 150px;*/
+    /*max-height: 200px;*/
     overflow: auto;
     overflow-x: hidden;
 }

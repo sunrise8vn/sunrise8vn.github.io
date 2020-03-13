@@ -1,0 +1,28 @@
+.container {
+	background-color: #fff;
+}
+
+.account-list-item {
+	color: #404040;
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+}
+
+.account-list-item:hover {
+	background-color: #e4e4e4;
+	cursor: pointer;
+}
+
+.account-list-item div {
+	padding: 10px;
+}
+
+.account-list-item svg {
+	height: 16px;
+	margin-right: 10px;
+}
+
+
+.account-list-item i {
+	margin-right: 10px;
+}

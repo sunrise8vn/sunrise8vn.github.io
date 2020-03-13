@@ -86,7 +86,81 @@ readTextFile("json/product.json", function (text) {
 			$(".group-list-items-mobile").append(str);
 		}
 	};
+	btnPlus();
 });
+
+function btnPlus() {
+    $(".item-btn .btn-plus").click(function() {
+        let itemId = $(this).data("id");
+    	let name = $(this).data("name");
+    	let price = $(this).data("price");
+		let k = false;
+
+		$.each(table01, function() {
+		    if (this.item_id == itemId) {
+		    	let q = this.item_quantity + 1;
+		        this.item_quantity = q;
+		        this.money = q * price;
+		        k = true;
+		    }
+		});
+
+		if(!k) {
+			
+			table01.push({
+              	"id": bill_detail_id_max + 1,
+				"bill_id": 1,
+				"table_id": 1,
+				"item_id": itemId,
+				"item_name": name,
+				"item_price": price,
+				"item_quantity": 1,
+				"money": price
+            });
+            
+	    	let str = '' +
+		    	'<div class="bill-items">' +
+			    '<div class="col-md-5">'+
+			    '<p>'+name+'</p>'+
+			    '<p>Giá: '+addCommas(price)+' vnđ</p>'+
+			    '</div>'+
+			    '<div class="col-md-3" style="text-align: center;">'+
+			    	'<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+					'<span>'+
+					'1' +
+					'</span>'+
+					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
+			    '</div>'+
+			    '<div class="col-md-4" style="text-align: right;">'+
+			    '<p>'+addCommas(price)+' vnđ</p>'+
+			    '</div>'+
+			    '</div>';
+	    	$("#table-bill-1").append(str);
+		}
+		else {
+			let str = '';
+			for (var i = 0; i < table01.length; i++) {
+			    str += '<div class="bill-items">' +
+				    '<div class="col-md-5">'+
+				    '<p>'+table01[i].item_name+'</p>'+
+				    '<p>Giá: '+addCommas(table01[i].item_price)+' vnđ</p>'+
+				    '</div>'+
+				    '<div class="col-md-3" style="text-align: center;">'+
+				    '<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+					'<span>'+
+					table01[i].item_quantity +
+					'</span>'+
+					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
+				    '</div>'+
+				    '<div class="col-md-4" style="text-align: right;">'+
+				    '<p>'+addCommas(table01[i].money)+' vnđ</p>'+
+				    '</div>'+
+				    '</div>';
+			}
+			$("#table-bill-1").html(str);
+		}
+    });
+}
 
 
 readTextFile("json/bill.json", function (text) {
@@ -110,7 +184,7 @@ readTextFile("json/bill.detail.json", function (text) {
 		return rs.table_id == 1;
 	});
 	table01 = data;
-	
+
     let k = data.length;
     let str = '';
     for(let i = 0; i < k; i++) {

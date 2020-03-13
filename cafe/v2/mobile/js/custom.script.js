@@ -54,7 +54,6 @@ $( document ).ready(function() {
 	//Fire it when the page first loads:
 	alterClass();
 
-    
 
     // Click table on Mobile
     $(".num-table a").click(function() {
@@ -84,7 +83,7 @@ $( document ).ready(function() {
     	$(".container .main-order-left").css("display", "none");
     	$(".container .main-order-right").eq(0).css("display", "none");
     	$(".list-table-extend-mobile button").eq(1).css("display", "inline-block");
-    	$(".nav_overlay_mobile").css("display", "block");
+    	$(".nav_overlay_mobile").css("display", "blockgg");
     })
 
     $(".list-table-extend-mobile button").eq(1).on("click", function() {
@@ -129,6 +128,8 @@ $( document ).ready(function() {
     	$(this).parent().css("color", "#fff");
     	$('> button', this).css("display", "inline-block");
     });
+
+    
 
 
     $(".item .item-btn .btn").on("click", function() {
@@ -202,26 +203,3 @@ $( document ).ready(function() {
 
     });
 });
-
-function changeTable() {
-    // alert("message?: DOMString");
-}
-
-
-// Click table on Mobile
-// $(".num-table a").on("click", function() {
-//     $(".list-table-mobile .num-table").removeClass("active");
-//     $(this).parent().addClass("active");
-
-//     $(".main-order").css("display", "none");
-//     $($(this).attr("href")).css("display", "block");
-
-//     $(".list-table-extend-mobile button").eq(0).css("display", "inline-block");
-//     $(".list-table-extend-mobile button").eq(1).css("display", "none");
-//     $(".list-table-mobile").height(70);
-//     $(".container .main-order-left").css("display", "block");
-//     $(".container .main-order-right").eq(0).css("display", "block");
-//     $(".nav_overlay_mobile").css("display", "none");
-//     return false;
-// });
-// End
