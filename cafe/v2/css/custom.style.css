@@ -334,6 +334,32 @@ a:hover {
     display: flow-root;
 }
 
+.list-table-mobile {
+    float: left;
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    background-color: #081142;
+    overflow: hidden;
+    z-index: 90;
+    position: relative;
+    transition: transform linear 3.5s;
+}
+
+.list-table-mobile .active {
+    background-color: #3f4c71 !important;
+    border-bottom: solid 3px #e2742b;
+}
+
+.list-table-extend-mobile {
+    width: 100%;
+    height: 26px;
+    text-align: center;
+    z-index: 90;
+    position: relative;    
+    display: flow-root;
+}
+
 .num-table {
     text-align: center;
     height: 70px;

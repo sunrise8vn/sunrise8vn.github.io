@@ -2,68 +2,69 @@ $( document ).ready(function() {
 	var alterClass = function() {
 	    var ww = document.body.clientWidth;
 	    if (ww < 1023) {
-		    $('.main-order-left').removeClass('col-md-8');
-		    $('.main-order-left').addClass('col-md-12');
-		    $('.main-order-right').removeClass('col-md-4');
-		    $('.main-order-right').addClass('col-md-12');
-
-		    $(".group-list-items-mobile").insertBefore(".group-list-items");
-
-	      	//	var prevScrollpos = window.pageYOffset;
-			// window.onscroll = function() {
-			//   	var currentScrollPos = window.pageYOffset;
-			//   	if (prevScrollpos > currentScrollPos) {
-			//     	document.getElementById("nav-top").style.top = "0";
-			//     	document.getElementById("container").style.top = "48";
-			//   	} else {
-			//     	document.getElementById("nav-top").style.top = "-48px";
-			//     	document.getElementById("container").style.top = "0";
-			//   	}
-			//   	prevScrollpos = currentScrollPos;
-			// }
-
-			// Hide Header on on scroll down
-			var didScroll;
-			var lastScrollTop = 0;
-			var delta = 5;
-			var navbarHeight = $('#nav-top').outerHeight();
-
-			$(window).scroll(function(event){
-			    didScroll = true;
-			});
-
-			setInterval(function() {
-			    if (didScroll) {
-			        hasScrolled();
-			        didScroll = false;
-			    }
-			}, 250);
-
-			function hasScrolled() {
-			    var st = $(this).scrollTop();
-			    
-			    // Make sure they scroll more than delta
-			    if(Math.abs(lastScrollTop - st) <= delta)
-			        return;
-			    
-			    if (st > lastScrollTop && st > navbarHeight){
-			        // Scroll Down
-			        $('#nav-top').addClass('nav-up');
-			        
-			    } else {
-			        // Scroll Up
-			        if(st + $(window).height() < $(document).height()) {
-			            $('#nav-top').removeClass('nav-up');
-			        }
-			    }
-			    
-			    lastScrollTop = st;
-			}
-			// End Hide Header
+	    	window.location.replace("mobile");
 	    }
 	    else {
-	    	$(".group-list-items").insertBefore(".group-list-items-mobile");
+
 	    }
+
+	    // $('.list-table').css('display', 'none');
+	    // $('.main-order-left').removeClass('col-md-8');
+	    // $('.main-order-left').addClass('col-md-12');
+	    // $('.main-order-right').removeClass('col-md-4');
+	    // $('.main-order-right').addClass('col-md-12');
+
+      	//	var prevScrollpos = window.pageYOffset;
+		// window.onscroll = function() {
+		//   	var currentScrollPos = window.pageYOffset;
+		//   	if (prevScrollpos > currentScrollPos) {
+		//     	document.getElementById("nav-top").style.top = "0";
+		//     	document.getElementById("container").style.top = "48";
+		//   	} else {
+		//     	document.getElementById("nav-top").style.top = "-48px";
+		//     	document.getElementById("container").style.top = "0";
+		//   	}
+		//   	prevScrollpos = currentScrollPos;
+		// }
+
+		// Hide Header on on scroll down
+		var didScroll;
+		var lastScrollTop = 0;
+		var delta = 5;
+		var navbarHeight = $('#nav-top').outerHeight();
+
+		$(window).scroll(function(event){
+		    didScroll = true;
+		});
+
+		setInterval(function() {
+		    if (didScroll) {
+		        hasScrolled();
+		        didScroll = false;
+		    }
+		}, 250);
+
+		function hasScrolled() {
+		    var st = $(this).scrollTop();
+		    
+		    // Make sure they scroll more than delta
+		    if(Math.abs(lastScrollTop - st) <= delta)
+		        return;
+		    
+		    if (st > lastScrollTop && st > navbarHeight){
+		        // Scroll Down
+		        $('#nav-top').addClass('nav-up');
+		        
+		    } else {
+		        // Scroll Up
+		        if(st + $(window).height() < $(document).height()) {
+		            $('#nav-top').removeClass('nav-up');
+		        }
+		    }
+		    
+		    lastScrollTop = st;
+		}
+		// End Hide Header
 	};
 	$(window).resize(function(){
 	    alterClass();
@@ -71,9 +72,9 @@ $( document ).ready(function() {
 	//Fire it when the page first loads:
 	alterClass();
 
-
-    $(".num-table a").on("click", function() {
-    	$(".num-table").removeClass("active");
+	// Click table on PC
+    $(".list-table .num-table a").on("click", function() {
+    	$(".list-table .num-table").removeClass("active");
     	$(this).parent().addClass("active");
     	
     	$(".main-order").css("display", "none");
@@ -89,11 +90,12 @@ $( document ).ready(function() {
     });
 
 
+
+    // Click extend table on PC
     $(".list-table-extend button").eq(0).on("click", function() {
     	$(".list-table").fadeIn(3400, function() {
     		$(".list-table").height("auto");	
     	});
-    	
     	
     	$(this).css("display", "none");
     	$(".container .main-order-left").css("display", "none");
@@ -111,6 +113,8 @@ $( document ).ready(function() {
     	$(".list-table-extend button").eq(0).css("display", "inline-block");
     	$(".nav_overlay").css("display", "none");
     })
+    // End
+
 
     $(".nav_overlay").on("click", function() {
     	$(".list-table").height(70);
@@ -126,7 +130,6 @@ $( document ).ready(function() {
     	$(".group-item").removeClass("active");
     	$(this).parent().addClass("active");
     	$(".group-list-items .list-items").removeClass("active");
-    	$(".group-list-items-mobile .list-items").removeClass("active");
     	$($(this).attr("href")).addClass("active");
     	return false;
     });

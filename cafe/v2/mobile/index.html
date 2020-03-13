@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>iManagement</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-4.4.1.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.style.css">
+
+    </head>
+
+    <body>
+        <div id="main">
+            <div id="nav-top">
+                <nav class="nav_tablet_mobile hide-on-pc">
+                	<div class="" style="float: left; padding: 10px;">
+                		<label>Linh Đan Mobile</label>
+                	</div>
+                	<div class="" style="float: right; padding-right: 10px;">
+                		<a href="" class="nav_mobile-link"><i class="fa fa-cog"></i></a>
+                	</div>
+	            </nav>
+            </div>
+            <div class="container">
+            	<div id="list-table">
+	            	<div class="list-table-mobile">
+
+	            	</div>
+	            	<div class="list-table-extend-mobile">
+	            		<button class="" style="background-color: transparent; border: 0; color: #fff;">
+	            			<i class="fa fa-caret-down"></i>
+	            		</button>
+	            		<button class="" style="background-color: transparent; border: 0; color: #fff; display: none;"><i class="fa fa-caret-up"></i></button>
+	            	</div>
+            	</div>
+            	<input type="checkbox" hidden class="nav_input" id="nav-extend-table-input">
+
+            	<div class="main-order-left">
+            		<div class="group-items">
+
+            		</div>
+            		<div class="group-list-items-mobile">
+
+	            	</div>
+            	</div>
+			
+				<div class="main-order-right">
+		            <div id="main-order-1" class="main-order-right main-order" style="display: block;">
+	            		<div class="order-group-item">
+	            			<div class="menu-group-item active">
+	            				<p>Thanh toán</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	            				<p>Gọi món</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	        					<p>Lịch sử</p>
+	            			</div>
+	            		</div>
+	            		<div class="menu-order">
+	            			<div class="table-name">
+	            				<div>
+	            					<p><b>Bàn 1</b></p>
+	            					<p>Anh Vũ</p>
+	            				</div>
+	            			</div>
+	            			<div id="table-bill-1" class="table-bill">
+
+	            			</div>
+	            			<div id="sub-total-money-1" class="sub-total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tiền sản phẩm</b></p>
+	            					<p>Phí dịch vụ</p>	
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            				</div>
+	            			</div>
+	            			<div id="total-money-1" class="total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tổng tiền</b></p>
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>37.000 vnđ</b></p>
+	            				</div>
+	            			</div>
+	            			<div class="checkout">
+	            				<button type="button" class="btn btn-success">Thanh toán</button>
+	            			</div>
+	            		</div>
+	            	</div>
+
+		            <div id="main-order-2" class="main-order-right main-order">
+	            		<div class="order-group-item">
+	            			<div class="menu-group-item active">
+	            				<p>Thanh toán</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	            				<p>Gọi món</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	        					<p>Lịch sử</p>
+	            			</div>
+	            		</div>
+	            		<div class="menu-order">
+	            			<div class="table-name">
+	            				<div>
+	            					<p><b>Bàn 2</b></p>
+	            					<p>Linh Đan</p>
+	            				</div>
+	            			</div>
+	            			<div id="table-bill-2" class="table-bill">
+	            				<div class="bill-items">
+	            					<div class="col-md-5">
+	            						<p>Cà phê đen</p>
+	            						<p>Giá: 12.000 vnđ</p>
+	            					</div>
+	            					<div class="col-md-3" style="text-align: center;">
+	        							
+	        								<button class="btn-minus"><i class="fa fa-minus"></i></button>
+	        								<span>2</span>	
+	        								<button class="btn-plus"><i class="fa fa-plus"></i></button>
+	        							
+	            					</div>
+	            					<div class="col-md-4" style="text-align: right;">
+	            						<p>12.000 vnđ</p>
+	            					</div>	
+	            				</div>
+	            				<div class="bill-items">
+	            					<div class="col-md-5">
+	            						<p>Cà phê sữa</p>
+	            						<p>Giá: 15.000 vnđ</p>
+	            					</div>
+	            					<div class="col-md-3" style="text-align: center;">
+	        								<button class="btn-minus"><i class="fa fa-minus"></i></button>
+	        								<span>2</span>	
+	        								<button class="btn-plus"><i class="fa fa-plus"></i></button>
+	            					</div>
+	            					<div class="col-md-4" style="text-align: right;">
+	            						<p>30.000 vnđ</p>
+	            					</div>	
+	            				</div>
+	            				<div class="bill-items">
+	            					<div class="col-md-5">
+	            						<p>Capuchino</p>
+	            						<p>Giá: 25.000 vnđ</p>
+	            					</div>
+	            					<div class="col-md-3" style="text-align: center;">
+	        								<button class="btn-minus"><i class="fa fa-minus"></i></button>
+	        								<span>1</span>	
+	        								<button class="btn-plus"><i class="fa fa-plus"></i></button>
+	            					</div>
+	            					<div class="col-md-4" style="text-align: right;">
+	            						<p>25.000 vnđ</p>
+	            					</div>	
+	            				</div>
+	            			</div>
+	            			<div class="sub-total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tiền sản phẩm</b></p>
+	            					<p>Phí dịch vụ</p>	
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>67.000 vnđ</b></p>
+	            					<p>15.000 vnđ</p>
+	            				</div>
+	            			</div>
+	            			<div class="total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tổng tiền</b></p>
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>82.000 vnđ</b></p>
+	            				</div>
+	            			</div>
+	            			<div class="checkout">
+	            				<button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Thanh toán</button>
+	            			</div>
+	            		</div>
+	            	</div>
+
+		            <div id="main-order-3" class="main-order-right main-order">
+	            		<div class="order-group-item">
+	            			<div class="menu-group-item active">
+	            				<p>Thanh toán</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	            				<p>Gọi món</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	        					<p>Lịch sử</p>
+	            			</div>
+	            		</div>
+	            		<div class="menu-order">
+	            			<div class="table-name">
+	            				<div>
+	            					<p><b>Bàn 3</b></p>
+	            					<p>Hoa Vinh</p>
+	            				</div>
+	            			</div>
+	            			<div id="table-bill-3" class="table-bill">
+	            				
+	            			</div>
+	            			<div class="sub-total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tiền sản phẩm</b></p>
+	            					<p>Phí dịch vụ</p>	
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            					<p>0 vnđ</p>
+	            				</div>
+	            			</div>
+	            			<div class="total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tổng tiền</b></p>
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            				</div>
+	            			</div>
+	            			<div class="checkout">
+	            				<button type="button" class="btn btn-success">Thanh toán</button>
+	            			</div>
+	            		</div>
+	            	</div>
+
+		            <div id="main-order-4" class="main-order-right main-order">
+	            		<div class="order-group-item">
+	            			<div class="menu-group-item active">
+	            				<p>Thanh toán</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	            				<p>Gọi món</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	        					<p>Lịch sử</p>
+	            			</div>
+	            		</div>
+	            		<div class="menu-order">
+	            			<div class="table-name">
+	            				<div>
+	            					<p><b>Bàn 4</b></p>
+	            					<p>&nbsp;</p>
+	            				</div>
+	            			</div>
+	            			<div id="table-bill-4" class="table-bill">
+	            				
+	            			</div>
+	            			<div class="sub-total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tiền sản phẩm</b></p>
+	            					<p>Phí dịch vụ</p>	
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            					<p>0 vnđ</p>
+	            				</div>
+	            			</div>
+	            			<div class="total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tổng tiền</b></p>
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            				</div>
+	            			</div>
+	            			<div class="checkout">
+	            				<button type="button" class="btn btn-success">Thanh toán</button>
+	            			</div>
+	            		</div>
+	            	</div>
+
+	            	<div id="main-order-5" class="main-order-right main-order">
+	            		<div class="order-group-item">
+	            			<div class="menu-group-item active">
+	            				<p>Thanh toán</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	            				<p>Gọi món</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	        					<p>Lịch sử</p>
+	            			</div>
+	            		</div>
+	            		<div class="menu-order">
+	            			<div class="table-name">
+	            				<div>
+	            					<p><b>Bàn 5</b></p>
+	            					<p>&nbsp;</p>
+	            				</div>
+	            			</div>
+	            			<div id="table-bill-5" class="table-bill">
+	            				
+	            			</div>
+	            			<div class="sub-total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tiền sản phẩm</b></p>
+	            					<p>Phí dịch vụ</p>	
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            					<p>0 vnđ</p>
+	            				</div>
+	            			</div>
+	            			<div class="total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tổng tiền</b></p>
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            				</div>
+	            			</div>
+	            			<div class="checkout">
+	            				<button type="button" class="btn btn-success">Thanh toán</button>
+	            			</div>
+	            		</div>
+	            	</div>
+
+	            	<div id="main-order-6" class="main-order-right main-order">
+	            		<div class="order-group-item">
+	            			<div class="menu-group-item active">
+	            				<p>Thanh toán</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	            				<p>Gọi món</p>
+	            			</div>
+	            			<div class="menu-group-item">
+	        					<p>Lịch sử</p>
+	            			</div>
+	            		</div>
+	            		<div class="menu-order">
+	            			<div class="table-name">
+	            				<div>
+	            					<p><b>Bàn 6</b></p>
+	            					<p>&nbsp;</p>
+	            				</div>
+	            			</div>
+	            			<div id="table-bill-6" class="table-bill">
+	            				
+	            			</div>
+	            			<div class="sub-total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tiền sản phẩm</b></p>
+	            					<p>Phí dịch vụ</p>	
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            					<p>0 vnđ</p>
+	            				</div>
+	            			</div>
+	            			<div class="total-money">
+	            				<div class="col-md-8">
+	            					<p><b>Tổng tiền</b></p>
+	            				</div>	
+	            				<div class="col-md-4" style="text-align: right;">
+	            					<p><b>0 vnđ</b></p>
+	            				</div>
+	            			</div>
+	            			<div class="checkout">
+	            				<button type="button" class="btn btn-success">Thanh toán</button>
+	            			</div>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
+            <label class="nav_overlay_mobile"></label>
+        </div>
+
+        <div class="nav-bottom">
+        	<nav class="nav_tablet_mobile">
+            	<ul class="nav_mobile-list">
+					<li>
+						<div class="">
+							<a href="" class="nav_mobile-link"><i class="fa fa-home"></i>
+								<p style="margin-top: -16px;"><span>Trang chủ</span></p>
+							</a>	
+						</div>	
+					</li>
+					<li>
+						<div class="">
+							<a href="" class="nav_mobile-link"><i class="fa fa-table"></i>
+								<p style="margin-top: -16px;"><span>Bàn</span></p>
+							</a>	
+						</div>	
+					</li>
+
+					<li>
+						<div class="">
+							<a href="" class="nav_mobile-link"><i class="fa fa-inbox"></i>
+								<p style="margin-top: -16px;"><span>Tin nhắn</span></p>
+							</a>	
+						</div>	
+					</li>
+					<li>
+						<div class="">
+							<a href="" class="nav_mobile-link"><i class="fa fa-user"></i>
+								<p style="margin-top: -16px;"><span>Tài khoản</span></p>
+							</a>	
+						</div>	
+					</li>
+				</ul>
+            </nav>
+        </div>
+        
+        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.12.1.js"></script>
+        <script type="text/javascript" src="js/bootstrap-4.4.1.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        
+        <script type="text/javascript" src="js/json.js"></script>
+        <script type="text/javascript" src="js/custom.script.js"></script>
+
+    </body>
+</html>
