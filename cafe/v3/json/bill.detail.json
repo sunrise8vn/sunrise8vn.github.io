@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"bill_id": 1,
+		"table_id": 1,
+		"item_id": 1,
+		"item_name": "Cà phê đen",
+		"item_price": 12000,
+		"item_quantity": 1,
+		"money": 12000
+	},
+	{
+		"id": 2,
+		"bill_id": 1,
+		"table_id": 1,
+		"item_id": 2,
+		"item_name": "Cà phê sữa",
+		"item_price": 15000,
+		"item_quantity": 1,
+		"money": 15000
+	},
+	{
+		"id": 3,
+		"bill_id": 2,
+		"table_id": 2,
+		"item_id": 3,
+		"item_name": "Cà phê sữa",
+		"item_price": 15000,
+		"item_quantity": 1,
+		"money": 15000
+	}
+]
