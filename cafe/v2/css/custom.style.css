@@ -242,7 +242,7 @@ a:hover {
         display: none;
     }
 
-    #container {
+    .container {
         margin-bottom: 24px !important;
     }
 
@@ -296,7 +296,7 @@ a:hover {
     }
 }
 
-#container {
+.container {
 	width: 1200px;
     min-height: 100vh;
     max-width: 100%;
@@ -381,7 +381,7 @@ a:hover {
     border-radius: 10px;
     top: 0;
     left: 0;
-    z-index: 99;
+    /*z-index: 99;*/
     background-color: #fff;
 }
 
