@@ -6,11 +6,11 @@ $( document ).ready(function() {
 	    }
 	    else {
             // var name = localStorage.getItem('user');
-            let user = JSON.parse(localStorage.getItem('user'));
-            console.log(user);
-            if(user == null) {
-                window.location.replace("../login.html");       
-            }
+            // let user = JSON.parse(localStorage.getItem('user'));
+            // console.log(user);
+            // if(user == null) {
+            //     window.location.replace("../login.html");       
+            // }
 	    }
 
         // Hide Header on on scroll down
