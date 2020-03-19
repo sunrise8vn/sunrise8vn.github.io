@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>iManagement</title>
+        <title>iCafe</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-4.4.1.min.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.style.css">
@@ -18,7 +18,7 @@
                 		<label>Linh Đan Mobile</label>
                 	</div>
                 	<div class="" style="float: right; padding-right: 10px;">
-                		<a href="" class="nav_mobile-link"><i class="fa fa-cog"></i></a>
+                		<a href="javascript:void(0);" class="nav_mobile-link nav-logout"><i class="fa fa-cog"></i></a>
                 	</div>
 	            </nav>
             </div>
@@ -84,9 +84,9 @@
 	            					<p><b>37.000 vnđ</b></p>
 	            				</div>
 	            			</div>
-	            			<div class="checkout">
-	            				<button type="button" class="btn btn-success">Thanh toán</button>
-	            			</div>
+	            			<!-- <div class="checkout">
+	            				<button type="button" class="btn btn-success">Đặt món cho khách bàn 01</button>
+	            			</div> -->
 	            		</div>
 	            	</div>
 
@@ -366,6 +366,12 @@
             </div>
             <label class="nav_overlay_mobile"></label>
         </div>
+        <div class="checkout">
+        	<a href="cart.html">
+        		<button type="button" id="btnCheckout" class="btn btn-primary" style="display: block;">0 | Gọi món 0 đ -></button>
+
+        	</a>
+        </div>
 
         <div class="nav-bottom">
         	<nav class="nav_tablet_mobile">
@@ -393,11 +399,11 @@
 						</div>	
 					</li>
 					<li>
-						<div class="">
-							<a href="" class="nav_mobile-link"><i class="fa fa-bell"></i>
-								<p style="margin-top: -10px;"><span>Thông báo</span></p>
-							</a>	
-						</div>	
+						<a href="" class="nav_mobile-link">
+							<i class="fa fa-bell" style="position: absolute; top: 6px; left: 39px;"></i>
+							<span class="label label-danger" style="top: -10px; position: relative; left: 20px;">99+</span>
+							<p style="margin-top: -10px;"><span>Thông báo</span></p>
+						</a>	
 					</li>
 					<li>
 						<div class="">
