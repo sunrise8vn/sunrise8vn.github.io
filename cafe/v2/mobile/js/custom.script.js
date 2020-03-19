@@ -5,7 +5,12 @@ $( document ).ready(function() {
             window.location.replace("..");
 	    }
 	    else {
-            
+            // var name = localStorage.getItem('user');
+            let user = JSON.parse(localStorage.getItem('user'));
+            console.log(user);
+            if(user == null) {
+                window.location.replace("../login.html");       
+            }
 	    }
 
         // Hide Header on on scroll down
@@ -54,6 +59,11 @@ $( document ).ready(function() {
 	//Fire it when the page first loads:
 	alterClass();
 
+    $(".nav-logout").on("click", function() {
+        // alert("message?: DOMString");
+        localStorage.removeItem('user');
+        window.location.replace("../login.html");
+    });
 
     // // Click table on Mobile
     // $(".num-table a").click(function() {
@@ -83,7 +93,7 @@ $( document ).ready(function() {
     	$(".container .main-order-left").css("display", "none");
     	$(".container .main-order-right").eq(0).css("display", "none");
     	$(".list-table-extend-mobile button").eq(1).css("display", "inline-block");
-    	$(".nav_overlay_mobile").css("display", "blockgg");
+    	$(".nav_overlay_mobile").css("display", "block");
     })
 
     $(".list-table-extend-mobile button").eq(1).on("click", function() {

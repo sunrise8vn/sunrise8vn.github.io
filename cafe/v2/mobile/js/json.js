@@ -120,8 +120,12 @@ function changeGroupItem() {
     });
 }
 
+var total = 0;
+var countItem = 0;
+
 function btnPlus() {
     $(".item-btn .btn-plus").click(function() {
+    	$("#btnCheckout").css("display", "block");
         let itemId = $(this).data("id");
     	let name = $(this).data("name");
     	let price = $(this).data("price");
@@ -149,46 +153,56 @@ function btnPlus() {
 				"money": price
             });
             
-	    	let str = '' +
-		    	'<div class="bill-items">' +
-			    '<div class="col-md-5">'+
-			    '<p>'+name+'</p>'+
-			    '<p>Giá: '+addCommas(price)+' vnđ</p>'+
-			    '</div>'+
-			    '<div class="col-md-3" style="text-align: center;">'+
-			    	'<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
-					'<span>'+
-					'1' +
-					'</span>'+
-					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
-			    '</div>'+
-			    '<div class="col-md-4" style="text-align: right;">'+
-			    '<p>'+addCommas(price)+' vnđ</p>'+
-			    '</div>'+
-			    '</div>';
-	    	$("#table-bill-1").append(str);
+	    // 	let str = '' +
+		   //  	'<div class="bill-items">' +
+			  //   '<div class="col-md-5">'+
+			  //   '<p>'+name+'</p>'+
+			  //   '<p>Giá: '+addCommas(price)+' vnđ</p>'+
+			  //   '</div>'+
+			  //   '<div class="col-md-3" style="text-align: center;">'+
+			  //   	'<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+					// '<span>'+
+					// '1' +
+					// '</span>'+
+					// '<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
+			  //   '</div>'+
+			  //   '<div class="col-md-4" style="text-align: right;">'+
+			  //   '<p>'+addCommas(price)+' vnđ</p>'+
+			  //   '</div>'+
+			  //   '</div>';
+	    // 	$("#table-bill-1").append(str);
+	    total += price;
+	    countItem ++;
+	    	let str = countItem + " | Gọi món " + addCommas(total) + ' đ' + ' ->';
+
+	    	$("#btnCheckout").html(str);
 		}
 		else {
-			let str = '';
-			for (var i = 0; i < table01.length; i++) {
-			    str += '<div class="bill-items">' +
-				    '<div class="col-md-5">'+
-				    '<p>'+table01[i].item_name+'</p>'+
-				    '<p>Giá: '+addCommas(table01[i].item_price)+' vnđ</p>'+
-				    '</div>'+
-				    '<div class="col-md-3" style="text-align: center;">'+
-				    '<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
-					'<span>'+
-					table01[i].item_quantity +
-					'</span>'+
-					'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
-				    '</div>'+
-				    '<div class="col-md-4" style="text-align: right;">'+
-				    '<p>'+addCommas(table01[i].money)+' vnđ</p>'+
-				    '</div>'+
-				    '</div>';
-			}
-			$("#table-bill-1").html(str);
+			// let str = '';
+			// for (var i = 0; i < table01.length; i++) {
+			//     str += '<div class="bill-items">' +
+			// 	    '<div class="col-md-5">'+
+			// 	    '<p>'+table01[i].item_name+'</p>'+
+			// 	    '<p>Giá: '+addCommas(table01[i].item_price)+' vnđ</p>'+
+			// 	    '</div>'+
+			// 	    '<div class="col-md-3" style="text-align: center;">'+
+			// 	    '<button class="btn-minus"><i class="fa fa-minus"></i></button>'+
+			// 		'<span>'+
+			// 		table01[i].item_quantity +
+			// 		'</span>'+
+			// 		'<button class="btn-plus"><i class="fa fa-plus"></i></button>'+
+			// 	    '</div>'+
+			// 	    '<div class="col-md-4" style="text-align: right;">'+
+			// 	    '<p>'+addCommas(table01[i].money)+' vnđ</p>'+
+			// 	    '</div>'+
+			// 	    '</div>';
+			// }
+			// $("#table-bill-1").html(str);
+			total += price;
+			countItem ++;
+			let str = countItem + " | Gọi món " + addCommas(total) + ' đ' + ' ->';
+
+	    	$("#btnCheckout").html(str);
 		}
     });
 }
