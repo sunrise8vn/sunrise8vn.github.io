@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iCafe</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-4.4.1.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sweetalert2v8.11.8.css">  
+    <link rel="stylesheet" type="text/css" href="css/custom-dropdown.css">  
+    <link rel="stylesheet" href="css/blue.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <style type="text/css">
+    	/*#day_open {
+		    position: relative;
+		    width: 150px; height: 20px;
+		    color: white;
+		}
+
+		#day_open:before {
+		    position: absolute;
+		    top: 3px; left: 3px;
+		    content: attr(data-date);
+		    display: inline-block;
+		    color: black;
+		}
+
+		#day_open::-webkit-datetime-edit, #day_open::-webkit-inner-spin-button, #day_open::-webkit-clear-button {
+		    display: none;
+		}
+
+		#day_open::-webkit-calendar-picker-indicator {
+		    position: absolute;
+		    top: 3px;
+		    right: 0;
+		    color: black;
+		    opacity: 1;
+		}*/
+		.hasDatepicker {
+			background-color: #ECECEC !important;
+			border-bottom: none !important;
+			background-image: url(/Content/images/testdrive_icon_calenda_on.png)!important;
+		    background-position: right center!important;
+		    background-repeat: no-repeat!important;
+		    margin: 0 !important;
+			text-indent: 20px;
+		    cursor: pointer;
+		}
+
+		.ui-widget-header {
+			background: none;
+		    background-color: #dd5d5d;
+		     border: none; 
+		}
+
+		.ui-widget-header .ui-icon {
+			background-image: none;
+		}
+
+		.ui-icon, .ui-widget-content .ui-icon {
+			background-image: none;
+		}
+		.ui-corner-all {
+			border-bottom-right-radius: 0px;
+			border-bottom-left-radius: 0px;
+			border-top-right-radius: 0px;
+		    border-top-left-radius: 0px;
+		}
+
+		.ui-datepicker-header {
+		    background-color: #dd5d5d;
+		    color: #fff;
+		}
+
+		.ui-datepicker-prev, .ui-datepicker-next {
+		    background-color: #dd5d5d;
+
+		}
+		.ui-datepicker-prev:hover {
+		   background: url('/Content/images/arrow-left-24.png') no-repeat 5px 6px;
+		   background-size: 16px;
+		    border: none;
+		    cursor: pointer;
+		}
+
+		.ui-datepicker-next:hover {
+		    background: url('/Content/images/arrow-right-24.png') no-repeat 10px 6px;
+		    background-size: 16px;
+		    border: none;
+		    cursor: pointer;
+		}
+
+		.ui-datepicker-prev span, .ui-datepicker-next span {
+		    color: #fff;
+		}
+
+		.ui-datepicker{
+		    padding: 0;
+		}
+
+
+		.ui-datepicker-next {
+		    background: url('/Content/images/arrow-right-24.png') no-repeat 10px 6px;
+		    background-size: 16px;
+		}
+
+		.ui-datepicker-prev {
+		    background: url('/Content/images/arrow-left-24.png') no-repeat 5px 6px;
+		    background-size: 16px;
+		}
+
+		.ui-datepicker table {
+		    border-collapse: collapse;
+		    border: none;
+		}
+
+		.ui-datepicker table thead{
+		    background-color: #e5e5e5;
+		}
+
+		.ui-datepicker table tbody td .ui-state-default {
+		    border: none;
+		    background-color: #fff;
+		    text-align: center;
+		    padding: 5px;
+		    margin: 0;
+		    background: none;
+		}
+		.ui-datepicker table tbody td .ui-state-default:hover {
+		    background-color: #dd5d5d;
+		    /*border-radius: 3px;*/
+		    color: #fff;
+		}
+
+		.ui-datepicker-year, .ui-datepicker-month {
+		    /*background-color: #dd5d5d;*/
+		    border: none;
+		    color: #fff;
+		}
+
+		.ui-datepicker table tbody td .ui-state-active {
+		    background-color: #dd5d5d;
+		    color: #fff;
+		    /*border-radius: 3px;*/
+		}
+    </style>
+    
+</head>
+<body class="main">
+	<div class="login-box">
+		<div class="login-box-body">
+    		<p class="login-box-msg">Đăng nhập hệ thống quản trị</p>
+    		<div id="city">
+	    		<div class="form-group custom-select-wrapper">
+	                <div class="custom-select">
+	                    <div class="custom-select__trigger"><span>Chọn thành phố</span>
+	                        <div class="arrow"></div>
+	                    </div>
+	                    <div class="custom-options">
+	                        <span class="custom-option selected" data-value="1">Hà Nội</span>
+	                        <span class="custom-option" data-value="2">Vinh</span>
+	                        <span class="custom-option" data-value="3">Hải Phòng</span>
+	                        <span class="custom-option" data-value="4">Quảng Bình</span>
+	                        <span class="custom-option" data-value="5">Đông Hà</span>
+	                        <span class="custom-option" data-value="6">Huế</span>
+	                        <span class="custom-option" data-value="7">Đà Nẵng</span>                        
+	                        <span class="custom-option" data-value="8">Nhà Trang</span>
+	                        <span class="custom-option" data-value="9">Vũng Tàu</span>
+	                        <span class="custom-option" data-value="10">Hồ Chí Minh</span>
+	                    </div>
+	                </div>
+	            </div>
+            </div>
+            <div id="shop">
+            	<div class="form-group custom-select-wrapper">
+	                <div class="custom-select">
+	                    <div class="custom-select__trigger"><span>Chọn tên quán</span>
+	                        <div class="arrow"></div>
+	                    </div>
+	                    <div class="custom-options">
+	                        
+	                    </div>
+	                </div>
+                </div>
+            </div>
+    		<div class="form-group has-feedback">
+		        <!-- <input type="date" id="day_open" class="form-control" data-date="" data-date-format="DD/MM/YYYY" value="2015-08-19"> -->
+		        <input type="text" id="day_open" class="form-control">
+		        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+	      	</div>
+	      	<div class="form-group has-feedback">
+		        <input type="text" id="username" class="form-control" placeholder="Tài khoản">
+		        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+	      	</div>
+	      	<div class="form-group has-feedback">
+		        <input type="password" id="password" class="form-control" placeholder="Mật khẩu">
+		        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+	      	</div>
+	      	<div class="row">
+		        <div class="col-md-12">
+		          	<div class="checkbox icheck">
+		            	<label class="">
+		              		<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type=		"checkbox" value="remember" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="		iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+		              		</div> Ghi nhớ đăng nhập
+		            	</label>
+		          	</div>
+		        </div>
+		        <div class="col-md-12">
+		          	<button type="submit" onclick="login();" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
+		        </div>
+	      	</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.12.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap-4.4.1.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2@9.js"></script>
+    <script type="text/javascript" src="js/custom.dropdown.js"></script>
+	<script src="js/icheck.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script> -->
+	<script type="text/javascript">
+		// $( document ).ready(function() {
+		// 	$("#day_open").on("change", function() {
+		// 	    this.setAttribute(
+		// 	        "data-date",
+		// 	        moment(this.value, "YYYY-MM-DD")
+		// 	        .format( this.getAttribute("data-date-format") )
+		// 	    )
+		// 	}).trigger("change")
+		// });
+
+		var user = JSON.parse(localStorage.getItem('user'));
+            console.log(user);
+
+		$('#day_open').datepicker({
+		    dateFormat: "dd/mm/yy",
+		    // maxDate: "+30d",
+		    minDate: "+1d",
+		    prevText: "Trước",
+		    nextText: "Sau",
+		    currentText: "Hôm nay",
+		    monthNames: ["Tháng một", "Tháng hai", "Tháng ba", "Tháng tư", "Tháng năm", "Tháng sáu", "Tháng bảy", "Tháng tám", "Tháng chín", "Tháng mười", "Tháng mười một", "Tháng mười hai"],
+		    monthNamesShort: ["Một", "Hai", "Ba", "Bốn", "Năm", "Sáu", "Bảy", "Tám", "Chín", "Mười", "Mười một", "Mười hai"],
+		    dayNames: ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"],
+		    dayNamesShort: ["CN", "Hai", "Ba", "Tư", "Năm", "Sáu", "Bảy"],
+		    dayNamesMin: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+		    weekHeader: "Tuần",
+		    dateFormat: "dd/mm/yy",
+		    firstDay: 1,
+		    showMonthAfterYear: false,
+		});
+
+		function login() {
+			let un = $("#username").val();
+			let pwd = $("#password").val();
+			let city_id = $("#city .selected").data("value");
+			let shop_id = $("#shop .selected").data("value");
+
+			readTextFile("json/user.json", function (text) {
+			    let data = JSON.parse(text);
+			    data = data.filter(function(rs) {
+					return rs.city_id == city_id && rs.shop_id == shop_id && rs.username == un && rs.password == pwd;
+				});
+				if(data.length > 0) {
+					Swal.fire(
+                      	'Thông báo',
+                      	'Đăng nhập hệ thống thành công.',
+                      	'success'
+                    );
+					localStorage.setItem ('user', JSON.stringify(data));
+					setTimeout(function(){ 
+						window.location.replace("mobile");
+					}, 2000);
+				}
+				else {
+					Swal.fire({
+                      icon: 'error',
+                      title: 'Cảnh báo',
+                      text: 'Đăng nhập không thành công!',
+                    })
+				}
+			});
+		}
+	</script>
+</body>
+</html>
