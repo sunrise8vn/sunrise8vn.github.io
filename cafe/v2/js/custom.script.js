@@ -5,7 +5,8 @@ $( document ).ready(function() {
 	    	window.location.replace("mobile");
 	    }
 	    else {
-
+	    	// let user = JSON.parse(localStorage.getItem('user'));
+	    	// console.log(user);
 	    }
 
 	    // $('.list-table').css('display', 'none');
@@ -89,7 +90,7 @@ $( document ).ready(function() {
     	return false;
     });
 
-
+	
 
     // Click extend table on PC
     $(".list-table-extend button").eq(0).on("click", function() {
@@ -254,6 +255,7 @@ $( document ).ready(function() {
 			}
 			$("#table-bill-1").html(str);
 		}
-
     });
+	
+    
 });
