@@ -440,7 +440,7 @@ span.label-danger {
         background-color: red;
         color: #fff;
         font-weight: 600;
-        /*display: none;*/
+        display: none;
         animation-delay:0s;
         animation-duration:0.5s;
         animation-fill-mode:forwards;

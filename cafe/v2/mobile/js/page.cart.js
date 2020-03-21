@@ -9,19 +9,23 @@ var itemId,
 $("#group-item .item").draggable({
 	axis: "x",
 	revert: function(){
+		itemId = $(this).data("item-id");
+		$("#item-"+ itemId + " .item-delete").css("display", "block");
 		if($(this).offset().left < -30) {
 			$(this).css("left", "-80px");
-			$("#group-item .item-delete").css("animation-name", "slideWidthUpDelete");
+			// $("#group-item .item-delete").css("animation-name", "slideWidthUpDelete");
 		}
 		else {
 			$(this).css("left", "0px");		
-			$("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
+			// $("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
+			$("#group-item .item-delete").css("display", "none");
+			// $("#item-"+ itemId + " .item-delete").css("display", "none");
 		}
 	}
 });
 
 $("#group-item .item").on("click", function() {
-
+	itemId = $(this).data("item-id");
 	if($(this).offset().left == 0) {
 		$(".cart_nav_overlay_mobile").css("display", "flex");
 		$("body").css("overflow-y", "hidden");
@@ -36,6 +40,10 @@ $("#group-item .item").on("click", function() {
 		$("#edit-item .item-count-selected input").val(itemCount);
 		// $("#group-item .item-delete").css("display", "none");
 		$("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
+		$("#group-item .item-delete").css("display", "none");
+	}
+	else {
+		$("#item-"+ itemId + " .item-delete").css("display", "none");
 	}
 
 	$("#group-item .item").each(function(index) {
