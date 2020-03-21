@@ -24,7 +24,7 @@ readTextFile("json/table.json", function (text) {
     for(let i = 0; i < k; i++) {
     	str += '<div class="num-table col-md-2'+active+'">'+
 	           '<a href="#main-order-'+data[i].id+'" onclick="changeTable()">'+
-		       '<h6>Bàn '+data[i].id+'</h6>'+
+		       '<h6>Bàn</h6>'+
 		       '<h3>'+data[i].id+'</h3>'+
 	           '</a>'+
 	           '</div>';
