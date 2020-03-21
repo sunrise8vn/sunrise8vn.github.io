@@ -237,6 +237,11 @@ span.label-danger {
         width: 16.66%;
     }
 
+    .col-md-23 {
+        width: 23%;
+        float: left;
+    }
+
     .col-md-3 {
         width: 25%;
     }
