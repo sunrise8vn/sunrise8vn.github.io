@@ -439,7 +439,8 @@ span.label-danger {
         padding-top: 20px;
         position: relative;
         height: 100%;
-        width: 80px;
+        max-width: 80px;
+        width: 0px;
         text-align: center;
         background-color: red;
         color: #fff;
@@ -449,6 +450,8 @@ span.label-danger {
         animation-duration:0.5s;
         animation-fill-mode:forwards;
         animation-timing-function:ease-out;
+        overflow: -webkit-paged-x;
+        word-wrap: break-word;
     }
 
     .row {
@@ -471,7 +474,7 @@ span.label-danger {
         /*transition: transform linear 0.2s, opacity linear 0.2s;*/
         /*animation-name:slideDown;*/
         animation-delay:0s;
-        animation-duration:0.5s;
+        animation-duration:0.3s;
         animation-fill-mode:forwards;
         animation-timing-function:ease-out;
     }
@@ -492,6 +495,7 @@ span.label-danger {
             }
         100% {
                 width: 80px;
+                margin-right: -80px;
                 display: block;
             }
     }

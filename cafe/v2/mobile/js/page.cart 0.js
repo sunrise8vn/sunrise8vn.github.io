@@ -8,37 +8,11 @@ var itemId,
 
 $("#group-item .item").draggable({
 	axis: "x",
-	drag: function () {
-		itemId = $(this).data("item-id");
-		$("#group-item .item").each(function(index) {
-			if($(this).data("item-id") != itemId) {
-				if($(this).offset().left < 0) {
-					
-					$(this).css("animation-name", "revertItem");
-					$(this).css("left", "0px");
-					// $(this).css("animation-name","");
-					$(this).find(".item-delete").css("animation-name", "slideWidthDownDelete");
-					$(this).find(".item-delete").css("display", "none");
-					$(this).css("animation-name", "");
-				}
-			}
-		});
-
-		var ol = $(this).offset().left;
-        var w = -ol + "px";
-        var mr = (ol - 2) + "px";
-        $(this).find(".item-delete").css("display", "block");
-        $(this).find(".item-delete").css("width", w);
-        $(this).find(".item-delete").css("margin-right", mr);
-		
-    },
 	revert: function(){
 		itemId = $(this).data("item-id");
-
+		$("#item-"+ itemId + " .item-delete").css("display", "block");
 		if($(this).offset().left < -30) {
 			$(this).css("left", "-80px");
-			$(this).find(".item-delete").css("width", "80px");
-			$(this).find(".item-delete").css("margin-right", "-80px");
 			// $("#group-item .item-delete").css("animation-name", "slideWidthUpDelete");
 		}
 		else {
@@ -66,28 +40,23 @@ $("#group-item .item").on("click", function() {
 		$("#edit-item .item-count-selected input").val(itemCount);
 		// $("#group-item .item-delete").css("display", "none");
 		$("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
-		// $("#group-item .item-delete").css("display", "none");
+		$("#group-item .item-delete").css("display", "none");
+	}
+	else {
+		$("#item-"+ itemId + " .item-delete").css("display", "none");
 	}
 
 	$("#group-item .item").each(function(index) {
 		if($(this).offset().left < 0) {
-			$(this).css("animation-name", "revertItem");
-			// $(this).css("left", "0px");
-			// $("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
+			// $(this).css("animation-name", "revertItem");
+			$(this).css("left", "0px");
+			
+			$("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
 		}
 		$(this).draggable();
 	});
-	setTimeout(function(){
-		$("#group-item .item").css("animation-name", "");
-		$("#group-item .item").css("left", "0");
-		$("#group-item .item-delete").css("display", "none");
-	}, 310);
 	$("body").css("overflow-x", "hidden");
 });
-
-function itemDeleteNone() {
-	$("#group-item .item-delete").css("display", "none");
-}
 
 $("#group-item .item-delete").on("click", function() {
 	itemId = $(this).data("item-id");
