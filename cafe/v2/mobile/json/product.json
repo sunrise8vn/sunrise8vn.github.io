@@ -4,42 +4,48 @@
 		"group_id": 1,
 		"name": "Cà phê đen",
 		"price": 12000,
-		"avatar": "glass-green.jpg"
+		"avatar": "glass-green.jpg",
+		"status": 1
 	},
 	{
 		"id": 2,
 		"group_id": 1,
 		"name": "Cà phê sữa",
 		"price": 15000,
-		"avatar": "glass-yellow.jpg"
+		"avatar": "glass-yellow.jpg",
+		"status": 1
 	},
 	{
 		"id": 3,
 		"group_id": 1,
 		"name": "Cà phê đen sài gòn",
 		"price": 16000,
-		"avatar": "glass-red.jpg"
+		"avatar": "glass-red.jpg",
+		"status": 1
 	},
 	{
 		"id": 4,
 		"group_id": 1,
 		"name": "Cà phê sữa sài gòn",
 		"price": 18000,
-		"avatar": "glass-blue.jpg"
+		"avatar": "glass-blue.jpg",
+		"status": 1
 	},
 	{
 		"id": 5,
 		"group_id": 1,
 		"name": "Espresso Black",
 		"price": 16000,
-		"avatar": "glass-blue.jpg"
+		"avatar": "glass-blue.jpg",
+		"status": 1
 	},
 	{
 		"id": 6,
 		"group_id": 1,
 		"name": "Espresso White",
 		"price": 20000,
-		"avatar": "glass-blue.jpg"
+		"avatar": "glass-blue.jpg",
+		"status": 1
 	}
 	,
 	{
@@ -47,7 +53,8 @@
 		"group_id": 2,
 		"name": "Lipton nóng",
 		"price": 20000,
-		"avatar": "glass-blue.jpg"
+		"avatar": "glass-blue.jpg",
+		"status": 1
 	}
 	,
 	{
@@ -55,7 +62,8 @@
 		"group_id": 2,
 		"name": "Lipton đá",
 		"price": 20000,
-		"avatar": "glass-blue.jpg"
+		"avatar": "glass-blue.jpg",
+		"status": 1
 	}
 
 ]

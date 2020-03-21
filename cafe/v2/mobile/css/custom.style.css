@@ -5,6 +5,7 @@
 body {
     margin: 0;
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 p {
@@ -228,20 +229,32 @@ span.label-danger {
         display: none;
     }
 
+    .col-md-1 {
+        width: 8.33%;
+    }
+
     .col-md-2 {
-        width: 20%;
+        width: 16.66%;
+    }
+
+    .col-md-3 {
+        width: 25%;
     }
 
     .col-md-4 {
-        width: 40%;
+        width: 33.33%;
     }
 
     .col-md-6 {
-        width: 60% !important;
+        width: 50% !important;
     }
 
     .col-md-8 {
-        width: 80% !important;
+        width: 66.66% !important;
+    }
+
+    .col-md-9 {
+        width: 75% !important;
     }
 
     .main-order-left, .main-order-rigt {
@@ -262,13 +275,72 @@ span.label-danger {
         display: none !important;
     }
     .item {
-
         height: auto !important;
+        height: 68px !important;
     }
 
     .item-img, .item-btn, .item-count {
         float: left;
     }
+
+    .cart-checkout-fix {
+        color: #fff;
+        bottom: 52px;
+        display: none;
+        position: fixed;
+        cursor: pointer;
+    }
+
+    /*.cart-checkout-fix:hover {
+        color: #fff;
+        bottom: 60px;
+        display: none;
+        position: fixed;
+    }*/
+
+    .cart-checkout {
+        padding: 10px 0px;
+        border-radius: 7px;
+        width: 100%;
+        z-index: 200;
+        background-color: #0089ff;
+    }
+
+    .cart-checkout:hover {
+        background-color: #1891f9;
+    }
+
+    /*.checkout .total-count:after {
+        content: '';
+        width: 1px;
+        height: 24px;
+        background: #c1c1c1;
+        position: absolute;
+        left: 87px;
+    }*/
+
+    .cart-checkout .col-md-8:before {
+        content: '';
+        width: 1px;
+        height: 24px;
+        background: #a0a0a0;
+        position: absolute;
+        left: 0px;
+    }
+
+    .cart-checkout .btn-success {
+        width: 85%;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+    .cart-checkout .btn-primary {
+        width: 85%;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+    
 
 }
 
@@ -303,7 +375,12 @@ span.label-danger {
         margin: 0 !important;
         border-radius: 0 !important;
         padding-bottom: 0 !important;
-        margin-bottom: 1px !important;
+        border-bottom: solid 1px #ececec;
+
+        animation-delay:0s;
+        animation-duration:0.5s;
+        animation-fill-mode:forwards;
+        animation-timing-function:ease-out;
     }
 
     .item .item-btn {
@@ -318,8 +395,10 @@ span.label-danger {
 
     .item-info {
         float: left;
+        height: 100%;
         /*width: auto;*/
         padding: 5px;
+        cursor: pointer;
     }
 
     .item-name {
@@ -334,15 +413,45 @@ span.label-danger {
     }
 
     .item-count {
+        height: 100%;
         text-align: center;
-        padding: 10px 0px;
+        padding: 20px 0px;
+        cursor: pointer;
+    }
+
+    .item-money {
+        height: 100%;
+        padding-left: 0;
+        padding-right: 5px;
+        text-align: right; 
+        padding-top: 20px;
+        cursor: pointer;
+    }
+
+    .item-delete {
+        float: right;
+        margin-top: -66px;
+        padding-top: 20px;
+        left: 80px;
+        position: relative;
+        height: 100%;
+        width: 80px;
+        text-align: center;
+        background-color: red;
+        color: #fff;
+        font-weight: 600;
+        /*display: none;*/
+        animation-delay:0s;
+        animation-duration:0.5s;
+        animation-fill-mode:forwards;
+        animation-timing-function:ease-out;
     }
 
     .row {
         width: 100%;
     }
 
-    .edit-item {
+    #edit-item {
         width: 100%;
         height: 350px;
         height: 0px;
@@ -361,6 +470,38 @@ span.label-danger {
         animation-duration:0.5s;
         animation-fill-mode:forwards;
         animation-timing-function:ease-out;
+    }
+
+    @keyframes revertItem {
+        0% {
+                left: -80px;
+            }
+        100% {
+                left: 0px;
+            }
+    }
+
+    @keyframes slideWidthUpDelete {
+        0% {
+                width: 80px;
+                display: block;
+            }
+        100% {
+                width: 80px;
+                display: block;
+            }
+    }
+
+    @keyframes slideWidthDownDelete {
+        0% {
+                /*width: 80px;*/
+                display: block;
+            }
+        100% {
+                /*width: 0px;*/
+                display: none;
+                /*overflow-x: hidden;*/
+            }
     }
 
     @keyframes slideUp {
@@ -421,32 +562,32 @@ span.label-danger {
         width: 100px;
     }
 
-    .edit-item .btn-close, .edit-item .btn-check {
+    #edit-item .btn-close, #edit-item .btn-check {
         display: inline-block;
         vertical-align: middle;
         line-height: 45px;
         font-size: 20px;
     }
 
-    .edit-item .btn-close, .edit-item .btn-check, .edit-item .btn-minus, .edit-item .btn-plus {
+    #edit-item .btn-close, #edit-item .btn-check, #edit-item .btn-minus, #edit-item .btn-plus {
         color: #3c9be0;
         background-color: transparent;
         border: 0px solid transparent;
     }
 
-    /*.edit-item .btn-close {
+    /*#edit-item .btn-close {
         color: #3c9be0;
         background-color: transparent;
         border: 0px solid transparent;
     }
 
-    .edit-item .btn-check {
+    #edit-item .btn-check {
         color: #3c9be0;
         background-color: transparent;
         border: 0px solid transparent;
     }
 
-    .edit-item .btn-minus {
+    #edit-item .btn-minus {
         color: #3c9be0;
         background-color: transparent;
         border: 0px solid transparent;
@@ -583,9 +724,6 @@ span.label-danger {
     display: inline;
 }
 
-.item:hover {
-    cursor: pointer;
-}
 
 .item-name {
     float: left;
@@ -629,6 +767,11 @@ span.label-danger {
 .group-list-items-mobile {
     /*margin-left: -15px;
     margin-right: -15px;*/
+}
+
+.group-list-items-mobile .item:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
 }
 
 .main-order-left .group-items .active {
@@ -677,12 +820,12 @@ span.label-danger {
     cursor: pointer;
 }
 
-.total-money {
+.menu-order .total-money {
     display: flex;
     padding: 10px 0px;
 }
 
-.sub-total-money {
+.menu-order .sub-total-money {
     display: flex;
     padding: 10px 0px;
     border-bottom: solid 2px #f1f1f1;
@@ -747,33 +890,11 @@ span.label-danger {
     display: inline-block;
 }
 
-.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10 {
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-12 {
     float: left;
 }
 
-.checkout {
-    /*padding: 20px 0px;
-    text-align: center;*/
 
-    padding: 10px 0px;
-    text-align: center;
-    bottom: 48px;
-    display: block;
-    position: fixed;
-    width: 100%;
-}
-
-.checkout .btn-success {
-    width: 85%;
-    border-radius: 20px;
-    margin: auto;
-}
-
-.checkout .btn-primary {
-    width: 85%;
-    border-radius: 20px;
-    margin: auto;
-}
 
 .order-item-1 {
     background-color: #fba154;

@@ -64,7 +64,7 @@ readTextFile("json/product.json", function (text) {
 		if(j>0){
 		    let str = '<div id="group-item-'+groupItemArray[i]+'" class="list-items'+active+'">';
 		    for(let k = 0; k < j; k++) {
-		    	str += '<div class="item">'+
+		    	str += '<div class="item" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'">'+
 		        			'<div class="item-img">'+
 		        				'<img src="images/'+items[k].avatar+'">'+
 		        			'</div>'+
@@ -72,11 +72,11 @@ readTextFile("json/product.json", function (text) {
 		        				'<p><b>'+items[k].name+'</b></p>'+
 		        				'<p>'+addCommas(items[k].price)+' vnđ</p>'+
 		        			'</div>'+
-		        			'<div class="item-btn">'+
-		        				'<button class="btn-minus" style="" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'"><i class="fa fa-minus"></i></button>'+
-    								'<span>0</span>'+
-								'<button class="btn-plus" style="" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'"><i class="fa fa-plus"></i></button>'+
-		        			'</div>'+
+		      //   			'<div class="item-btn">'+
+		      //   				'<button class="btn-minus" style="" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'"><i class="fa fa-minus"></i></button>'+
+    				// 				'<span>0</span>'+
+								// '<button class="btn-plus" style="" data-id="'+items[k].id+'" data-name="'+items[k].name+'" data-price="'+data[k].price+'"><i class="fa fa-plus"></i></button>'+
+		      //   			'</div>'+
 		        		'</div>';
 		    }
 		    str += '</div>';
@@ -124,7 +124,8 @@ var total = 0;
 var countItem = 0;
 
 function btnPlus() {
-    $(".item-btn .btn-plus").click(function() {
+    // $(".item-btn .btn-plus").click(function() {
+    $(".group-list-items-mobile .item").click(function() {
     	$("#btnCheckout").css("display", "block");
         let itemId = $(this).data("id");
     	let name = $(this).data("name");
@@ -170,12 +171,16 @@ function btnPlus() {
 			  //   '<p>'+addCommas(price)+' vnđ</p>'+
 			  //   '</div>'+
 			  //   '</div>';
-	    // 	$("#table-bill-1").append(str);
-	    total += price;
-	    countItem ++;
-	    	let str = countItem + " | Gọi món " + addCommas(total) + ' đ' + ' ->';
 
-	    	$("#btnCheckout").html(str);
+		   //  $("#table-bill-1").append(str);
+
+			total += price;
+			countItem ++;
+			// let str2 = countItem + " | Giỏ hàng " + addCommas(total) + ' đ' + ' ->';
+			// $("#btnCheckout").html(str2);
+			$(".cart-checkout .cart-count-total").html(countItem);
+			$(".cart-checkout .cart-money-total span").html(addCommas(total));
+	    	
 		}
 		else {
 			// let str = '';
@@ -198,12 +203,17 @@ function btnPlus() {
 			// 	    '</div>';
 			// }
 			// $("#table-bill-1").html(str);
+
 			total += price;
 			countItem ++;
-			let str = countItem + " | Gọi món " + addCommas(total) + ' đ' + ' ->';
+			// let str2 = countItem + " | Giỏ hàng " + addCommas(total) + ' đ' + ' ->';
+	    	// $("#btnCheckout").html(str2);
 
-	    	$("#btnCheckout").html(str);
+	    	$(".cart-checkout .cart-count-total").html(countItem);
+			$(".cart-checkout .cart-money-total span").html(addCommas(total));
+
 		}
+		$(".cart-checkout-fix").css("display", "flex");
     });
 }
 
@@ -228,7 +238,11 @@ readTextFile("json/bill.detail.json", function (text) {
     data = data.filter(function(rs) {
 		return rs.table_id == 1;
 	});
+	
 	table01 = data;
+	// localStorage.setItem ('table01', JSON.stringify(table01));
+    // let ls = JSON.parse(localStorage.getItem('table01'));
+    // console.log(ls);
 
     let k = data.length;
     let str = '';
