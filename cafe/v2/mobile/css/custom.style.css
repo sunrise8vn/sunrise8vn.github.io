@@ -296,13 +296,6 @@ span.label-danger {
         cursor: pointer;
     }
 
-    /*.cart-checkout-fix:hover {
-        color: #fff;
-        bottom: 60px;
-        display: none;
-        position: fixed;
-    }*/
-
     .cart-checkout {
         padding: 10px 0px;
         border-radius: 7px;
@@ -314,15 +307,6 @@ span.label-danger {
     .cart-checkout:hover {
         background-color: #1891f9;
     }
-
-    /*.checkout .total-count:after {
-        content: '';
-        width: 1px;
-        height: 24px;
-        background: #c1c1c1;
-        position: absolute;
-        left: 87px;
-    }*/
 
     .cart-checkout .col-md-8:before {
         content: '';
@@ -343,9 +327,7 @@ span.label-danger {
         width: 85%;
         border-radius: 20px;
         margin: auto;
-    }
-
-    
+    }  
 
 }
 
@@ -435,7 +417,7 @@ span.label-danger {
 
     .item-delete {
         float: right;
-        margin-right: -80px;
+        top: -67px;
         padding-top: 20px;
         position: relative;
         height: 100%;
@@ -445,13 +427,7 @@ span.label-danger {
         background-color: red;
         color: #fff;
         font-weight: 600;
-        display: none;
-        animation-delay:0s;
-        animation-duration:0.5s;
-        animation-fill-mode:forwards;
-        animation-timing-function:ease-out;
-        overflow: -webkit-paged-x;
-        word-wrap: break-word;
+        display: block;
     }
 
     .row {
@@ -469,80 +445,8 @@ span.label-danger {
         z-index: 100;
         display: block;
         bottom: 48px;
-        /*transform: translateY(100%);*/
         opacity: 1;
-        /*transition: transform linear 0.2s, opacity linear 0.2s;*/
-        /*animation-name:slideDown;*/
-        animation-delay:0s;
-        animation-duration:0.3s;
-        animation-fill-mode:forwards;
-        animation-timing-function:ease-out;
     }
-
-    @keyframes revertItem {
-        0% {
-                left: -80px;
-            }
-        100% {
-                left: 0px;
-            }
-    }
-
-    @keyframes slideWidthUpDelete {
-        0% {
-                width: 80px;
-                display: block;
-            }
-        100% {
-                width: 80px;
-                margin-right: -80px;
-                display: block;
-            }
-    }
-
-    @keyframes slideWidthDownDelete {
-        0% {
-                /*width: 80px;*/
-                display: block;
-            }
-        100% {
-                /*width: 0px;*/
-                display: none;
-                /*overflow-x: hidden;*/
-            }
-    }
-
-    @keyframes slideUp {
-        0% {
-                transform: translateY(100%);
-                height: 0px;
-            }
-        100% {
-                transform:translateY(0%);
-                height: 350px;
-            }
-    }
-
-    @keyframes slideDown {
-        0% {
-                transform: translateY(0%);
-                height: 350px;
-            }
-        100% {
-                transform:translateY(100%);
-                /*height: 0px;*/
-            }
-        /*0% {
-                transform: translateY(100%);
-                height: 0px;
-            }
-        100% {
-                transform:translateY(0%);
-                height: 350px;
-            }*/
-    }
-
-
 
     @keyframes fadeIn {
         from {
@@ -582,24 +486,6 @@ span.label-danger {
         background-color: transparent;
         border: 0px solid transparent;
     }
-
-    /*#edit-item .btn-close {
-        color: #3c9be0;
-        background-color: transparent;
-        border: 0px solid transparent;
-    }
-
-    #edit-item .btn-check {
-        color: #3c9be0;
-        background-color: transparent;
-        border: 0px solid transparent;
-    }
-
-    #edit-item .btn-minus {
-        color: #3c9be0;
-        background-color: transparent;
-        border: 0px solid transparent;
-    }*/
 }
 
 @keyframes fadeIn {
@@ -691,6 +577,7 @@ span.label-danger {
 .main-order-left, .main-order-right {
     margin-bottom: 20px;
     float: left;
+    overflow: -webkit-paged-x;
 }
 
 

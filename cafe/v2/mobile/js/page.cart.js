@@ -11,41 +11,34 @@ $("#group-item .item").draggable({
 	drag: function () {
 		itemId = $(this).data("item-id");
 		$("#group-item .item").each(function(index) {
-			if($(this).data("item-id") != itemId) {
-				if($(this).offset().left < 0) {
-					
-					$(this).css("animation-name", "revertItem");
-					$(this).css("left", "0px");
-					// $(this).css("animation-name","");
-					$(this).find(".item-delete").css("animation-name", "slideWidthDownDelete");
-					$(this).find(".item-delete").css("display", "none");
-					$(this).css("animation-name", "");
-				}
+			if($(this).data("item-id") != itemId && $(this).offset().left == -80) {
+				// $(this).css("animation-name", "revertItem");left: -80px;
+				$(this).animate({ left: "+=80px"}, 'slow');
+				$(this).css("left", "0px");		
+				$(this).find(".item-delete").animate({ width: "-=80px", right: "+=80px" }, 'slow', function() {
+					$(this).parent().css("animation-name", "");
+				});
 			}
 		});
 
 		var ol = $(this).offset().left;
         var w = -ol + "px";
-        var mr = (ol - 2) + "px";
-        $(this).find(".item-delete").css("display", "block");
+        var r = ol + "px";
         $(this).find(".item-delete").css("width", w);
-        $(this).find(".item-delete").css("margin-right", mr);
+        $(this).find(".item-delete").css("right", r);
 		
     },
 	revert: function(){
 		itemId = $(this).data("item-id");
-
 		if($(this).offset().left < -30) {
 			$(this).css("left", "-80px");
 			$(this).find(".item-delete").css("width", "80px");
-			$(this).find(".item-delete").css("margin-right", "-80px");
-			// $("#group-item .item-delete").css("animation-name", "slideWidthUpDelete");
+			$(this).find(".item-delete").css("right", "-80px");
 		}
 		else {
 			$(this).css("left", "0px");		
-			// $("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
-			$("#group-item .item-delete").css("display", "none");
-			// $("#item-"+ itemId + " .item-delete").css("display", "none");
+			$(this).find(".item-delete").css("width", "0px");
+			$(this).find(".item-delete").css("right", "0px");
 		}
 	}
 });
@@ -54,35 +47,25 @@ $("#group-item .item").on("click", function() {
 	itemId = $(this).data("item-id");
 	if($(this).offset().left == 0) {
 		$(".cart_nav_overlay_mobile").css("display", "flex");
-		$("body").css("overflow-y", "hidden");
-		$("#edit-item").css("animation-name", "slideUp");
-		$("#edit-item").css("opacity", 1);
-		$("#edit-item").css("display", "block");
+		$("#edit-item").animate({ height: "+=350px", opacity: 1, display: "block" }, 400 );
 		itemId = $(this).data("item-id");
 		itemName = $(this).data("item-name");
 		itemPrice = $(this).data("item-price");
 		itemCount = $(this).data("item-count");
 		$("#edit-item .item-name-selected span").html(itemName);
 		$("#edit-item .item-count-selected input").val(itemCount);
-		// $("#group-item .item-delete").css("display", "none");
-		$("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
-		// $("#group-item .item-delete").css("display", "none");
-	}
 
-	$("#group-item .item").each(function(index) {
-		if($(this).offset().left < 0) {
-			$(this).css("animation-name", "revertItem");
-			// $(this).css("left", "0px");
-			// $("#group-item .item-delete").css("animation-name", "slideWidthDownDelete");
-		}
-		$(this).draggable();
-	});
-	setTimeout(function(){
-		$("#group-item .item").css("animation-name", "");
-		$("#group-item .item").css("left", "0");
-		$("#group-item .item-delete").css("display", "none");
-	}, 310);
-	$("body").css("overflow-x", "hidden");
+		$("#group-item .item").each(function(index) {
+			if($(this).offset().left < 0) {
+				$(this).animate({ left: "+=80px" }, 400 );
+				$(this).find(".item-delete").animate({ right: '+=80px', width: "-=80px"}, 400 );
+			}
+		});		
+	}
+	else {
+		$(this).animate({ left: "+=80px" }, 400 );
+		$(this).find(".item-delete").animate({ right: '+=80px', width: "-=80px"}, 400 );
+	}
 });
 
 function itemDeleteNone() {
@@ -96,8 +79,7 @@ $("#group-item .item-delete").on("click", function() {
 
 $(".cart_nav_overlay_mobile, .btn-close, .btn-check").on("click", function() {
 	$(".cart_nav_overlay_mobile").css("display", "none");
-	$("body").css("overflow-y", "visible");
-	$("#edit-item").css("animation-name", "slideDown");
+	$("#edit-item").animate({ height: "-=350px", opacity: 0, display: "none" }, 400 );
 });
 
 
