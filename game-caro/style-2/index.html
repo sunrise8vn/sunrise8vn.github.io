@@ -127,14 +127,14 @@
                         if (this.innerHTML !== "X" && this.innerHTML !== "O") {
                             if(X_or_O % 2 === 0) {
                                 this.innerHTML = "X";
-                                $(this).css('color', "red");
+                                $(this).css('color', "green");
                                 if (getWinner() == true) { 
                                     endGame(this.innerHTML);
                                 }
                                 X_or_O += 1;
                             } else {
                                 this.innerHTML = "O";
-                                $(this).css('color', "blue");
+                                $(this).css('color', "red");
                                 if (getWinner() == true) { 
                                     endGame(this.innerHTML);
                                 }
@@ -142,7 +142,7 @@
                             }
                         }
                         else {
-                            $("#box" + i).css('color', "red");
+                            $("#box" + i).css('color', "green");
                         }
                     }
                 }
