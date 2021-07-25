@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image Base64</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+        .avatar {
+            max-width: 150px;
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <img id="avatar" class="avatar" name="avatar" >
+    <input type="text" id="avatarHidden" name="avatarHidden" hidden>
+    <input type="file" id="fileinput" onchange="uploadImageBase64(this);"  accept="image/gif, image/jpeg, image/png">
+
+    <script type="text/javascript">
+        function uploadImageBase64(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#avatar').attr('src', e.target.result);
+                    $('#avatarHidden').attr('value', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+</body>
+</html>

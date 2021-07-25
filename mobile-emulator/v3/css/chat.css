@@ -1,0 +1,507 @@
+
+body {
+    /*margin: 0 auto;*/
+    background-color: #2a3d50;
+}
+#main {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-img {
+    /*float: left;*/
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    /*color: #000;*/
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+#NOKIA .panel-body
+{
+    overflow-y: auto;
+    height: 419px;
+    padding: 10px;
+}
+
+
+.panel {
+  background-color: transparent;
+}
+
+#NOKIA .panel-primary {
+  width: 335px;
+  margin-top: -5px;
+  margin-left: -8px;
+  /*border-color: #5bc0de;*/
+  /*border-top-left-radius: 27px;
+  border-top-right-radius: 27px;*/
+  border: 0;
+}
+
+#NOKIA .panel-heading {
+  background-color: transparent;
+  /*border-top-left-radius: 27px;
+  border-top-right-radius: 27px;*/
+  border: 0;
+  z-index: 90;
+}
+
+
+#IPHONE .panel-primary {
+  /*border-color: #5bc0de;*/
+  /*border-top-left-radius: 27px;
+  border-top-right-radius: 27px;*/
+  border: 0;
+}
+
+#IPHONE .panel-heading {
+  background-color: transparent !important;
+  /*border-top-left-radius: 27px;
+  border-top-right-radius: 27px;*/
+  border: 0;
+}
+
+.panel-footer {
+ background-color: transparent;
+ border-top: 0; 
+ border-bottom-right-radius: 8px;
+ border-bottom-left-radius: 8px;
+
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-track
+{
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    background-color: #fff;*/
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    /*background-color: #F5F5F5;
+    background-color: #fff;*/
+}
+
+::-webkit-scrollbar-thumb
+{
+    /*border-radius: 10px;*/
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+    background-color: #dbe5ec;
+}
+
+
+.toggleSwitch {
+  /*clear: both;*/
+}
+
+#togglePowerNO, #toggleChargeNO, #togglePowerIP, #toggleChargeIP {
+  opacity: 0;
+}
+
+.label {
+  display: inline-block;
+  background: #878787;
+  width: 4em;
+  height: 1.2em;
+  border-radius: 0.8em;
+  position: relative;
+  cursor: pointer;
+  background: #878787;
+}
+
+#switchPowerNO, #switchChargeNO, #switchPowerIP, #switchChargeIP {
+  position: absolute;
+  width: 1.9em;
+  height: 1.9em;
+  margin-top: -0.5em;
+  margin-left: -2.2em;
+  border-radius: 1em;
+  background: #c9c9c9;
+  box-shadow: 5px 0px 28px -9px rgba(0, 0, 0, 0.75);
+  transition: transform 0.2s ease-in;
+}
+
+#togglePowerNO:checked ~ .label, #togglePowerIP:checked ~ .label {
+  background: #cb929a;
+}
+
+#toggleChargeNO:checked ~ .label, #toggleChargeIP:checked ~ .label {
+  background: #76a06d;
+}
+
+#togglePowerNO:checked ~ .label #switchPowerNO, #togglePowerIP:checked ~ .label #switchPowerIP {
+  background: #ba5460;
+  transform: translatex(2.5em);
+  transition: transform 0.2s ease-in;
+}
+
+#toggleChargeNO:checked ~ .label #switchChargeNO, #toggleChargeIP:checked ~ .label #switchChargeIP {
+  background: #6cbd5a;
+  transform: translatex(2.5em);
+  transition: transform 0.2s ease-in;
+}
+
+.card {
+  /*width: 100%;*/
+  /*height: 41px;*/
+  position: relative;
+  display: inline-block;
+}
+.card .img-top {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 15px;
+  z-index: 99;
+  cursor: pointer;
+}
+.card:hover .img-top {
+  display: inline;
+}
+
+.div-compose, .div-inbox, .div-sent, .div-all, .delete, .cancel {
+  display: none;
+}
+
+#IPHONE .div-compose, #IPHONE .div-inbox, #IPHONE .div-sent, #IPHONE .div-all {
+  height: 486px;
+}
+
+#NOKIA .div-compose, #NOKIA .div-inbox, #NOKIA .div-sent, #NOKIA .div-all {
+  height: 465px;
+}
+
+#NOKIA .div-compose .panel-body {
+  height: 381px;
+}
+
+#NOKIA .home-menu {
+  height: 465px;
+  width: 100%;
+}
+
+#IPHONE .div-compose {
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  background-color: rgb(250, 252, 255);
+}
+
+#IPHONE .div-compose .panel-body {
+  overflow-y: auto;
+  height: 395px;
+}
+
+#IPHONE .div-inbox .panel-body
+{
+    overflow-y: auto;
+    height: 441px;
+    padding: 10px;
+}
+
+#IPHONE .div-all .panel-body
+{
+    overflow-y: auto;
+    height: 441px;
+    padding: 10px;
+}
+
+#IPHONE .home-menu {
+  height: 486px;
+  width: 100%;
+}
+
+#nokia-draggable, #iphone-draggable, #iphone-inbox-draggable, #iphone-draggable-home {
+  cursor: pointer;
+}
+.div-compose, .div-sent, .div-all {
+
+}
+
+#iphone-draggable-home {
+  height: 10px;
+  width: 100px;
+  background-color: #fff;
+  margin: 0px auto;
+  position: relative;
+  border-radius: 5px;
+  display: none;
+}
+
+.mess:hover {
+  /*background-color: #e3d3d3;*/
+}
+
+.delMess {
+  height: 30px;
+  background-color: red;
+  bottom: 30px;
+  position: relative;
+}
+
+.divhode {
+  width: 30px;
+  line-height: 50px;
+  float: left;
+  margin-left: -10px;
+  padding-right: 10px;
+  display: none;
+}
+
+.toggleSwitch b {
+  color: white;
+}
+
+.iphone-img {
+  background-image: url('../img/iphone4x6.png');
+  background-repeat:no-repeat;
+  width: 380px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+}
+
+.nokia-img {
+  /*background-image: url('../img/nokia4x6-border.png');*/
+  /*background-repeat:no-repeat;*/
+  width: 380px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  /*z-index: 100;*/
+}
+
+#NOKIA .home-center img {
+  height: 16px;
+}
+
+.home-top {
+  height: 279px;
+  padding-top: 10px;
+}
+
+.button-home  {
+  position: relative;
+  float: left;
+  margin: 7px;
+}
+
+.button-home img {
+  /*background-repeat:no-repeat;*/
+  border:none;
+  height: 57px;
+  width: 57px;
+  /*background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;*/
+  /*margin-left: 7px;
+  margin-top: 7px;*/
+}
+
+input [button] {
+  background-color: transparent;
+  border: none;
+}
+
+.button-home img:hover {
+  box-shadow: 5px 5px 12px #b0e7f5; 
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  border-radius: 16px; 
+  cursor: pointer;
+}
+
+#IPHONE .home-top-title {
+  top: 100%; 
+  position: absolute;
+  /*text-align: center;*/
+  font-size: 12px;
+  color: #444444;
+}
+
+#NOKIA .home-top-title {
+  top: 100%; 
+  position: absolute;
+  /*text-align: center;*/
+  font-size: 12px;
+  color: #fff;
+}
+
+.nokia-base {
+  width: 380px; 
+  height: 600px;
+  position: absolute; 
+  background-image: url(../img/nokia4x6-border.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+}
+
+.nokia-base-change {
+  margin-top: 16px;
+  margin-left: 11px;
+  width: 357px;
+  height: 522px;
+  position: absolute;
+  background-image: url(../img/nokia-base-change.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  opacity: 1;
+}
+
+.nokia-base-color {
+  margin-top: 20px;
+  margin-left: 22px;
+  width: 336px;
+  height: 490px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:hover > img {
+  box-shadow: 0px 0px 20px #3bd1f7; 
+  /*-webkit-transform: translateY(-3px);*/
+  /*transform: translateY(-3px);*/
+  border-radius: 12px; 
+}
+
+.screen-child-top {
+  height: 30px;
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.nokia-back {
+  border-bottom-left-radius: 22px;
+}
+
+.nokia-multitask {
+  border-bottom-right-radius: 22px;
+}
+
+.nokia-back img:hover, .nokia-home-center img:hover, .nokia-multitask img:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+#IPHONE .delete {
+  text-align: center;
+  margin-top: -30px;
+  background-color: #fff;
+  height: 31px;
+  position: relative;
+  padding: 5px;
+}
+
+#clock {
+  width: 140px;
+  height: 50px;
+  color: white;
+}
+
+#NOKIA .time {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#NOKIA .date {
+  font-size: 16px;
+}
+
+.delete-message {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.newMessage:hover, .select-all:hover, .un-check-all:hover, .delete-message:hover {
+  cursor: pointer;
+}
+
+a {
+  color: #428bca;
+  text-decoration: none !important;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.div-inbox img:hover, .div-all img:hover {
+  cursor: pointer;
+}
+
+.fa, .far {
+  margin-right: 5px;
+}
