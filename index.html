@@ -1,46 +1,20 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="custom-style.css">
-
+  <meta charset="utf-8">
+  <title>AngularFrontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>:root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#007bff;--secondary:#6c757d;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}*,:after,:before{box-sizing:border-box;}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Liberation Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff;}@media print{*,:after,:before{text-shadow:none!important;box-shadow:none!important;}@page {size:a3;}body{min-width:992px!important;}}</style>
+<link rel="stylesheet" href="styles.6defa81d5ddcd34021d7.css" media="print" onload="this.media='all'">
+<noscript>
+	<link rel="stylesheet" href="styles.6defa81d5ddcd34021d7.css">
+</noscript>
 </head>
 <body>
-    <div id="main">
-        <div class="input-group mb-3">
-            <div class="card">
-                <h5>Add New Product</h5>
-                <div class="card-header">
-                    <input type="text" id="item" class="form-control col-sm-9 mr-3" placeholder="New Product" aria-label="New Product" aria-describedby="button-addon2" ng-model="item">
-                    <button class="btn btn-primary col-sm-2 bg-success border-0 mb-2" type="button" id="button-addon2" onclick="addItem(item.value); item.value = null;">Add</button>
-                </div>
-                <br>
-                <h5>Display All Product</h5>
-            </div>
-        </div>
-        <div>
-            <table id="dtProducts" class="table table-striped border-top-0" cellspacing="0" width="100%">
-              <thead>
-                <tr class="border-top-0">
-                  <th scope="col">#</th>
-                  <th scope="col">Product Name</th>
-                  <th scope="col"></th>
-                  <th scope="col"><span id="countItem" class="text-danger"></span></th>
-                </tr>
-              </thead>
-              <tbody id="tbody">
-              </tbody>
-            </table>
-        </div>
-    </div>
+  <app-root></app-root>
+<script src="runtime.3ae2c38ca28f0f5946b5.js" defer></script>
+<script src="polyfills.205fb9d5caf59e842dd6.js" defer></script>
+<script src="main.d813a2150723c5ab8b30.js" defer></script>
 
-    <script type="text/javascript" src="script.js"></script>
-     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-</body>
-</html>
+</body></html>
