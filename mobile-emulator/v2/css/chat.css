@@ -144,10 +144,6 @@ body {
 }
 
 
-.toggleSwitch {
-  /*clear: both;*/
-}
-
 #togglePowerNO, #toggleChargeNO, #togglePowerIP, #toggleChargeIP {
   opacity: 0;
 }
@@ -267,9 +263,7 @@ body {
 #nokia-draggable, #iphone-draggable, #iphone-inbox-draggable, #iphone-draggable-home {
   cursor: pointer;
 }
-.div-compose, .div-sent, .div-all {
 
-}
 
 #iphone-draggable-home {
   height: 10px;
@@ -281,9 +275,6 @@ body {
   display: none;
 }
 
-.mess:hover {
-  /*background-color: #e3d3d3;*/
-}
 
 .delMess {
   height: 30px;
@@ -500,4 +491,8 @@ a:hover {
 
 .div-inbox img:hover, .div-all img:hover {
   cursor: pointer;
+}
+
+.fa.fa-clock {
+  margin-right: 5px;
 }

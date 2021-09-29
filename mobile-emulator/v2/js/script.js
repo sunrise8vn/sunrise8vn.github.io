@@ -145,7 +145,7 @@ function chatNO() {
 		let text1 = "";
 		text1 += "<li class='left clearfix w3-animate-bottom'>";
 		text1 += "<span class='chat-img pull-left'>";
-		text1 += "<img src='http://placehold.it/50/55C1E7/fff&text=NO' alt='User Avatar' class='img-circle' />";
+		text1 += "<img src='./img/" + iphone.name.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
 		text1 += "</span>";
 		text1 += "<div class='chat-body clearfix'>";
 		text1 += "<div class='header'>";
@@ -167,12 +167,11 @@ function chatIP() {
 		let text1 = "";
 		text1 += "<li class='left clearfix w3-animate-bottom'>";
 		text1 += "<span class='chat-img pull-left'>";
-		text1 += "<img src='http://placehold.it/50/55C1E7/fff&text=NO' alt='User Avatar' class='img-circle' />";
+		text1 += "<img src='./img/" + nokia.name.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
 		text1 += "</span>";
 		text1 += "<div class='chat-body clearfix'>";
 		text1 += "<div class='header' style='width: 100%;'>";
 		text1 += "<strong class='primary-font' style='margin-top: -3px;'>" + nokia.name + "</strong>";
-		// text1 += "<small class='pull-right text-muted' style='float: left;'><span class='glyphicon glyphicon-time'></span>" + getToday() + "</small>"
 		text1 += "<small class='pull-right text-muted' style='float: left;'><i class='fa fa-clock'></i>" + getToday() + "</small>"
 		text1 += "</div>";
 		text1 += "<p style='text-align: left;'>" + txtIP.value + "</p>";
@@ -200,11 +199,11 @@ function setSendMess(id, sender, receiver, content) {
 }
 
 
-function getInboxNO(idElement, deviceName, receiver) {
+function getInboxNO(idElement, receiver) {
 	showInbox(idElement);
 	
 	let element = $(idElement).find(".inbox");
-	// element.html("");
+	
 	this.ib = Mess.filter(x => x.receiver === receiver);
 	ib.reverse();
 
@@ -219,14 +218,13 @@ function getInboxNO(idElement, deviceName, receiver) {
 			let text1 = "";
 			text1 += "<li id='mess-no" + m[i].id + "' class='right clearfix w3-animate-top mess'>";
 			text1 += "<span class='chat-img pull-right'>";
-			text1 += "<img src='http://placehold.it/50/FA6F57/fff&text=" + deviceName + "' alt='User Avatar' class='img-circle' />";
+			text1 += "<img src='./img/" + m[i].sender.substring(0, 2).toUpperCase() + "_sender.png" + "' alt='User Avatar' class='img-circle' />";
 			text1 += "</span>";
 			text1 += "<div class='chat-body clearfix'>";
 			text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
 			text1 += "<input type='checkbox' name='messno[]' value='"+ m[i].id +"'></div>"
 			text1 += "<div class='header'>";
-			// text1 += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + m[i].date + "</small>"
-			text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + m[i].date + "</small>"
+			text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'> </i>" + m[i].date + "</small>"
 			text1 += "<strong class='primary-font'>" + m[i].sender + "</strong>";
 			text1 += "</div>";
 			text1 += "<p style='text-align: left'>" + m[i].content + "</p>";
@@ -237,7 +235,7 @@ function getInboxNO(idElement, deviceName, receiver) {
 	changeBackgroundColorNO('inbox');
 }
 
-function getInboxIP(idElement, deviceName, receiver) {
+function getInboxIP(idElement, receiver) {
 	showInbox(idElement);
 	changeBackgroundColorIP();	
 
@@ -266,14 +264,14 @@ function getInboxIP(idElement, deviceName, receiver) {
 			let text1 = "";
 			text1 += "<li id='mess-ip" + m[i].id + "' class='right clearfix w3-animate-top mess'>";
 			text1 += "<span class='chat-img pull-right'>";
-			text1 += "<img src='http://placehold.it/50/FA6F57/fff&text=" + deviceName + "' alt='User Avatar' class='img-circle' />";
+			text1 += "<img src='./img/" + m[i].sender.substring(0, 2).toUpperCase() + "_sender.png" + "' alt='User Avatar' class='img-circle' />";
 			text1 += "</span>";
 			text1 += "<div class='chat-body clearfix'>";
 			text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
 			text1 += "<input type='checkbox' name='messip[]' value='"+ m[i].id +"'></div>"
 			text1 += "<div class='header'>";
 			// text1 += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + m[i].date + "</small>"
-			text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + m[i].date + "</small>"
+			text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'> </i>" + m[i].date + "</small>"
 			text1 += "<strong class='primary-font'>" + m[i].sender + "</strong>";
 			text1 += "</div>";
 			text1 += "<p style='text-align: left'>" + m[i].content + "</p>";
@@ -297,7 +295,7 @@ function sent(idElement, deviceName, classElement, sender, receiver) {
 		let text1 = "";
 		text1 += "<li class='left clearfix'>";
 		text1 += "<span class='chat-img pull-left'>";
-		text1 += "<img src='http://placehold.it/50/55C1E7/fff&text=" + deviceName + "' alt='User Avatar' class='img-circle' />";
+		text1 += "<img src='./img/" + deviceName + ".png' alt='User Avatar' class='img-circle' />";
 		text1 += "</span>";
 		text1 += "<div class='chat-body clearfix'>";
 		text1 += "<div class='header'>";
@@ -310,12 +308,12 @@ function sent(idElement, deviceName, classElement, sender, receiver) {
 	}
 }
 
-function showAllMessageNO(idElement, deviceName, classElement, sender) {
+function showAllMessageNO(idElement, deviceName, classElement) {
 	showAll(idElement);
 	
 	let eName = $(idElement).find("." + classElement);
 	eName.html("");
-	this.ib = Mess.filter(x => x.sender === sender || x.receiver === sender);
+	this.ib = Mess.filter(x => x.sender === deviceName || x.receiver === deviceName);
 	ib.reverse();
 
 	for(let i = 0; i < ib.length; i++){
@@ -327,10 +325,10 @@ function showAllMessageNO(idElement, deviceName, classElement, sender) {
 	if (newMess.length > 0) {
 		for(let i = 0; i < newMess.length; i++){
 			let text1 = "";
-			if(this.newMess[i].sender == sender) {
+			if(this.newMess[i].sender == deviceName) {
 				text1 += "<li id='mess-no" + newMess[i].id + "' class='left clearfix w3-animate-top mess'>";
 				text1 += "<span class='chat-img pull-left'>";
-				text1 += "<img src='http://placehold.it/50/55C1E7/fff&text=" + deviceName + "' alt='User Avatar' class='img-circle' />";
+				text1 += "<img src='./img/" + this.newMess[i].receiver.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
 				text1 += "</span>";
 				text1 += "<div class='chat-body clearfix'>";
 				text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
@@ -345,7 +343,7 @@ function showAllMessageNO(idElement, deviceName, classElement, sender) {
 			else {
 				text1 += "<li id='mess-no" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
 				text1 += "<span class='chat-img pull-right'>";
-				text1 += "<img src='http://placehold.it/50/FA6F57/fff&text=" + deviceName + "' alt='User Avatar' class='img-circle' />";
+				text1 += "<img src='./img/" + this.newMess[i].sender.substring(0, 2).toUpperCase() + "_sender.png' alt='User Avatar' class='img-circle' />";
 				text1 += "</span>";
 				text1 += "<div class='chat-body clearfix'>";
 				text1 += "<div class='header'>";
@@ -361,13 +359,13 @@ function showAllMessageNO(idElement, deviceName, classElement, sender) {
 	changeBackgroundColorNO('all');
 }
 
-function showAllMessageIP(idElement, deviceName, classElement, sender) {
+function showAllMessageIP(idElement, deviceName, classElement) {
 	showAll(idElement);
 	changeBackgroundColorIP();
 
 	let eName = $(idElement).find("." + classElement);
 	eName.html("");
-	this.ib = Mess.filter(x => x.sender === sender || x.receiver === sender);
+	this.ib = Mess.filter(x => x.sender === deviceName || x.receiver === deviceName);
 	ib.reverse();
 
 	for(let i = 0; i < ib.length; i++){
@@ -379,10 +377,10 @@ function showAllMessageIP(idElement, deviceName, classElement, sender) {
 	if (newMess.length > 0) {
 		for(let i = 0; i < this.newMess.length; i++){
 			let text1 = "";
-			if(this.newMess[i].sender == sender) {
+			if(this.newMess[i].sender == deviceName) {
 				text1 += "<li id='mess-ip" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
 				text1 += "<span class='chat-img pull-right'>";
-				text1 += "<img src='http://placehold.it/50/55C1E7/fff&text=" + newMess[i].receiver.substring(0, 2).toUpperCase() + "' alt='User Avatar' class='img-circle' />";
+				text1 += "<img src='./img/" + this.newMess[i].receiver.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
 				text1 += "</span>";
 				text1 += "<div class='chat-body clearfix'>";
 				text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
@@ -398,7 +396,7 @@ function showAllMessageIP(idElement, deviceName, classElement, sender) {
 			else {
 				text1 += "<li id='mess-ip" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
 				text1 += "<span class='chat-img pull-right'>";
-				text1 += "<img src='http://placehold.it/50/FA6F57/fff&text=" + newMess[i].sender.substring(0, 2).toUpperCase() + "' alt='User Avatar' class='img-circle' />";
+				text1 += "<img src='./img/" + newMess[i].sender.substring(0, 2).toUpperCase() + "_sender.png' alt='User Avatar' class='img-circle' />";
 				text1 += "</span>";
 				text1 += "<div class='chat-body clearfix'>";
 				text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
@@ -635,12 +633,12 @@ function changeBackgroundColorNO(label) {
 }
 
 function changeBackgroundColorIP() {
-	$("#IPHONE  #iphone-draggable-home").css("display", "block");	
-	$("#IPHONE  #iphone-draggable-home").css("background-color", "#49494e");	
-	$("#IPHONE  .iphone-img").css("background-image", "url('img/iphone4x6child.png')");	
-	$("#IPHONE  .img-battery").css("border", "1px solid #9E9E9E");	
-	$("#IPHONE  .top").css("background-color", "#9E9E9E");
-	$("#IPHONE  .txt-battery").css("color", "#607d8b");
+	$("#IPHONE #iphone-draggable-home").css("display", "block");	
+	$("#IPHONE #iphone-draggable-home").css("background-color", "#49494e");	
+	$("#IPHONE .iphone-img").css("background-image", "url('img/iphone4x6child.png')");	
+	$("#IPHONE .img-battery").css("border", "1px solid #9E9E9E");	
+	$("#IPHONE .top").css("background-color", "#9E9E9E");
+	$("#IPHONE .txt-battery").css("color", "#607d8b");
 }
 
 function showComposeNO() {
@@ -661,7 +659,7 @@ function actionClickInboxNO(elementId) {
 	let longpress = false;
 
     $(elementId).on('click', function (e) {
-        (longpress) ?  e.preventDefault() : getInboxNO('#NOKIA', 'NO', 'nokia');
+        (longpress) ?  e.preventDefault() : getInboxNO('#NOKIA', 'nokia');
     });
     
     let startTime, endTime;
@@ -687,7 +685,7 @@ function actionClickAllNO(elementId) {
 	let longpress = false;
 
     $(elementId).on('click', function (e) {
-        (longpress) ?  e.preventDefault() : showAllMessageNO('#NOKIA', 'NO', 'all', 'nokia');
+        (longpress) ?  e.preventDefault() : showAllMessageNO('#NOKIA', 'nokia', 'all');
     });
     
     let startTime, endTime;
@@ -713,7 +711,7 @@ function actionClickInboxIP(elementId) {
 	let longpress = false;
 
     $(elementId).on('click', function (e) {
-        (longpress) ?  e.preventDefault() : getInboxIP('#IPHONE', 'IP', 'iphone');
+        (longpress) ?  e.preventDefault() : getInboxIP('#IPHONE', 'iphone');
     });
     
     let startTime, endTime;
@@ -739,7 +737,7 @@ function actionClickAllIP(elementId) {
 	let longpress = false;
 
     $(elementId).on('click', function (e) {
-        (longpress) ?  e.preventDefault() : showAllMessageIP('#IPHONE', 'IP', 'all', 'iphone');
+        (longpress) ?  e.preventDefault() : showAllMessageIP('#IPHONE', 'iphone', 'all');
     });
     
     let startTime, endTime;
@@ -828,7 +826,7 @@ $(function() {
         stop: function() {
         	let top = $("#iphone-draggable").position().top;
         	if (top >= 20) {
-        		showAllMessageIP('#IPHONE', 'IP', 'all', 'iphone');
+        		showAllMessageIP('#IPHONE', 'iphone', 'all');
         	}
 		}
 	});
@@ -838,7 +836,7 @@ $(function() {
         stop: function() {
         	let top = $("#iphone-inbox-draggable").position().top;
         	if (top >= 20) {
-        		getInboxIP('#IPHONE', 'IP', 'iphone');
+        		getInboxIP('#IPHONE', 'iphone');
         	}
 		}
 	});
@@ -849,7 +847,7 @@ $(function() {
         stop: function() {
 			let top = $("#nokia-draggable").position().top;
         	if (top >= 20) {
-        		getInboxNO('#NOKIA', 'NO', 'nokia');
+        		getInboxNO('#NOKIA', 'nokia');
         	}
 		}
 	});
@@ -917,7 +915,7 @@ function deleteMessage() {
     }
     iphone.setDeleteMess(1);
     cancelIP();
-    showAllMessageIP('#IPHONE', 'IP', 'all', 'iphone');
+    showAllMessageIP('#IPHONE', 'iphone', 'all');
 }
 
 function messChecked() {

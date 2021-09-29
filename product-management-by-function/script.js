@@ -66,7 +66,7 @@ function editItem(tdid, val) {
         $(input).remove();
         $("#span" + tdid).show("slow");
         displayItems();
-    };          
+    };
     tdEdit.appendChild(btnCancel);
 
     $("#span" + tdid).hide();
