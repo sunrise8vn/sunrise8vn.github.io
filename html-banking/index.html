@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets//fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Customer information</h1>
+            <form action="">
+                <div class="row mt-3">
+                    <div class="col-lg-6">
+                        <label for="fullName" class="fw-bold">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="email" class="fw-bold">Email</label>
+                        <input type="text" id="email" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-6">
+                        <label for="phone" class="fw-bold">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="address" class="fw-bold">Address</label>
+                        <input type="text" id="address" name="address" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-3">
+                        <button type="button" class="btn btn-outline-primary">
+                            <i class="fa-solid fa-plus"></i>
+                            <span> Create</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </header>
+        
+        <div class="content">
+            <table class="table table-hover mt-3">
+                <thead>
+                   <tr>
+                       <th class="text-center">#</th>
+                       <th class="text-center">Full Name</th>
+                       <th class="text-center">Email</th>
+                       <th class="text-center">Phone</th>
+                       <th class="text-center">Address</th>
+                       <th class="text-center">Balance</th>
+                       <th colspan="5" class="text-center">Action</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>NVA</td>
+                        <td>nva@co.cc</td>
+                        <td class="text-center">2345</td>
+                        <td>28 NTP</td>
+                        <td class="text-end">0</td>
+                        <td>
+                            <button class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Update">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Deposit">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-warning" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Withdraw">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Transfer">
+                                <i class="fa-solid fa-right-left"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+        let a = 5;
+        let b;
+
+        function add(c, b = 20) {
+            let a = 10;
+            return a + b;
+        }
+
+        let c = add(a, b);
+
+        console.log("c = " + c);
+
+        // phước error
+        // hằng error
+        // ngân undefined
+
+        // tùng error
+        // tiến 15
+        // đạt 15
+        // huy 20
+        // trí lê 20
+        // minh 20
+        // phong 20
+        // trung 20
+        // lộc error
+        // trí đào 30
+
+    </script>
+</body>
+</html>
