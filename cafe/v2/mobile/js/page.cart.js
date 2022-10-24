@@ -10,6 +10,7 @@ $("#group-item .item").draggable({
 	axis: "x",
 	drag: function () {
 		itemId = $(this).data("item-id");
+		console.log(itemId);
 		$("#group-item .item").each(function(index) {
 			if($(this).data("item-id") != itemId && $(this).offset().left == -80) {
 				// $(this).css("animation-name", "revertItem");left: -80px;

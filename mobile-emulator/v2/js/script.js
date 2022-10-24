@@ -1,112 +1,3 @@
-class Mobile {
-	constructor(name, battery, state, draft) {
-		this.name = name;
-		this.battery = battery;	
-		this.archiveMess = [];
-		this.newMess = [];
-		this.state = state;
-		this.draft = draft;
-		this.deleteMess = 0;
-	}
-
-	setBattery(batt) {
-		if(batt > 100)
-			return 100;
-		return batt;
-	}
-
-	getBattery() {
-		return this.battery;
-	}
-
-	setChargeBattery() {
-		if (this.battery >= 100){
-			this.battery = 100;
-		}
-		else{
-			this.battery += 1;
-		}
-	}
-
-	setDeleteMess(d) {
-		this.deleteMess = d;
-	}
-
-	getDeleteMess() {
-		return this.deleteMess;
-	}
-
-	setMess(id, sender, receiver, content, date) {
-		const found = this.archiveMess.some(el => el.id === id);
-		if (!found) {
-			this.archiveMess.push({
-				id : id,
-				sender : sender,
-				receiver : receiver,
-				content : content,
-				date: date, 
-				status: 0
-			});
-			this.newMess.push({
-				id : id,
-				sender : sender,
-				receiver : receiver,
-				content : content,
-				date: date, 
-				status: 0
-			});
-		}
-	}
-
-
-	getArchiveMess() {
-		let items =  this.archiveMess.filter(function(item) {
-			return item.status === 0;
-		});
-		return items;
-	}
-
-	getNewMess(receiver) {
-		let items =  this.newMess.filter(function(item) {
-			return item.status === 0 && item.receiver === receiver;
-		});
-		return items;
-	}
-
-	getInboxMess(receiver) {
-		let items =  this.archiveMess.filter(function(item) {
-			return item.status === 0 && item.receiver === receiver;
-		});
-		return items;
-	}
-
-	clearNewMess() {
-		this.newMess = [];
-	}
-
-	setDraft(str) {
-		this.draft = str;
-	}
-
-	getDraft() {
-		if (typeof this.draft != 'undefined')
-			return this.draft;
-		else
-			return null;
-	}
-
-	resetDraft() {
-		this.draft = null;
-	}
-
-	setState(b) {
-		this.state = b;
-	}
-
-	getState() {
-		return this.state;
-	}
-}
 
 var txtNO = document.getElementById('txtNO');
 var txtIP = document.getElementById('txtIP');
@@ -142,19 +33,19 @@ function chatNO() {
 	if(nokia.getState() == true && txtNO.value.trim().length > 0){
 		setSendMess(count, nokia.name, iphone.name, txtNO.value);	
 		nokia.resetDraft();
-		let text1 = "";
-		text1 += "<li class='left clearfix w3-animate-bottom'>";
-		text1 += "<span class='chat-img pull-left'>";
-		text1 += "<img src='./img/" + iphone.name.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
-		text1 += "</span>";
-		text1 += "<div class='chat-body clearfix'>";
-		text1 += "<div class='header'>";
-		text1 += "<strong class='primary-font'>" + iphone.name + "</strong>";
-		// text1 += "<small class='pull-right'><span class='glyphicon glyphicon-time'></span>" + getToday() + "</small>"
-		text1 += "<small class='pull-right'><i class='fa fa-clock'></i>" + getToday() + "</small>"
-		text1 += "</div>";
-		text1 += "<p>" + txtNO.value + "</p>";
-		$("#NOKIA .compose").append(text1);
+		let str = "";
+		str += "<li class='left clearfix w3-animate-bottom'>";
+		str += "<span class='chat-img pull-left'>";
+		str += "<img src='./img/" + iphone.name.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
+		str += "</span>";
+		str += "<div class='chat-body clearfix'>";
+		str += "<div class='header'>";
+		str += "<strong class='primary-font'>" + iphone.name + "</strong>";
+		// str += "<small class='pull-right'><span class='glyphicon glyphicon-time'></span>" + getToday() + "</small>"
+		str += "<small class='pull-right'><i class='fa fa-clock'></i>" + getToday() + "</small>"
+		str += "</div>";
+		str += "<p>" + txtNO.value + "</p>";
+		$("#NOKIA .compose").append(str);
 	}
 }
 
@@ -164,18 +55,18 @@ function chatIP() {
 		setSendMess(count, iphone.name, nokia.name, txtIP.value);
 		iphone.setMess(count, iphone.name, nokia.name, txtIP.value, getToday());
 		iphone.resetDraft();
-		let text1 = "";
-		text1 += "<li class='left clearfix w3-animate-bottom'>";
-		text1 += "<span class='chat-img pull-left'>";
-		text1 += "<img src='./img/" + nokia.name.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
-		text1 += "</span>";
-		text1 += "<div class='chat-body clearfix'>";
-		text1 += "<div class='header' style='width: 100%;'>";
-		text1 += "<strong class='primary-font' style='margin-top: -3px;'>" + nokia.name + "</strong>";
-		text1 += "<small class='pull-right text-muted' style='float: left;'><i class='fa fa-clock'></i>" + getToday() + "</small>"
-		text1 += "</div>";
-		text1 += "<p style='text-align: left;'>" + txtIP.value + "</p>";
-		$("#IPHONE .compose").append(text1);
+		let str = "";
+		str += "<li class='left clearfix w3-animate-bottom'>";
+		str += "<span class='chat-img pull-left'>";
+		str += "<img src='./img/" + nokia.name.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
+		str += "</span>";
+		str += "<div class='chat-body clearfix'>";
+		str += "<div class='header' style='width: 100%;'>";
+		str += "<strong class='primary-font' style='margin-top: -3px;'>" + nokia.name + "</strong>";
+		str += "<small class='pull-right text-muted' style='float: left;'><i class='fa fa-clock'></i>" + getToday() + "</small>"
+		str += "</div>";
+		str += "<p style='text-align: left;'>" + txtIP.value + "</p>";
+		$("#IPHONE .compose").append(str);
 	}
 }
 
@@ -215,20 +106,20 @@ function getInboxNO(idElement, receiver) {
 
 	if (m.length > 0) {
 		for (let i = 0; i < m.length; i++) {
-			let text1 = "";
-			text1 += "<li id='mess-no" + m[i].id + "' class='right clearfix w3-animate-top mess'>";
-			text1 += "<span class='chat-img pull-right'>";
-			text1 += "<img src='./img/" + m[i].sender.substring(0, 2).toUpperCase() + "_sender.png" + "' alt='User Avatar' class='img-circle' />";
-			text1 += "</span>";
-			text1 += "<div class='chat-body clearfix'>";
-			text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
-			text1 += "<input type='checkbox' name='messno[]' value='"+ m[i].id +"'></div>"
-			text1 += "<div class='header'>";
-			text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'> </i>" + m[i].date + "</small>"
-			text1 += "<strong class='primary-font'>" + m[i].sender + "</strong>";
-			text1 += "</div>";
-			text1 += "<p style='text-align: left'>" + m[i].content + "</p>";
-			element.prepend(text1);
+			let str = "";
+			str += "<li id='mess-no" + m[i].id + "' class='right clearfix w3-animate-top mess'>";
+			str += "<span class='chat-img pull-right'>";
+			str += "<img src='./img/" + m[i].sender.substring(0, 2).toUpperCase() + "_sender.png" + "' alt='User Avatar' class='img-circle' />";
+			str += "</span>";
+			str += "<div class='chat-body clearfix'>";
+			str += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
+			str += "<input type='checkbox' name='messno[]' value='"+ m[i].id +"'></div>"
+			str += "<div class='header'>";
+			str += "<small class='pull-left text-muted'><i class='fa fa-clock'> </i>" + m[i].date + "</small>"
+			str += "<strong class='primary-font'>" + m[i].sender + "</strong>";
+			str += "</div>";
+			str += "<p style='text-align: left'>" + m[i].content + "</p>";
+			element.prepend(str);
 		}
 		nokia.clearNewMess();
 	}
@@ -261,21 +152,21 @@ function getInboxIP(idElement, receiver) {
 
 	if (m.length > 0) {
 		for (let i = 0; i < m.length; i++) {
-			let text1 = "";
-			text1 += "<li id='mess-ip" + m[i].id + "' class='right clearfix w3-animate-top mess'>";
-			text1 += "<span class='chat-img pull-right'>";
-			text1 += "<img src='./img/" + m[i].sender.substring(0, 2).toUpperCase() + "_sender.png" + "' alt='User Avatar' class='img-circle' />";
-			text1 += "</span>";
-			text1 += "<div class='chat-body clearfix'>";
-			text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
-			text1 += "<input type='checkbox' name='messip[]' value='"+ m[i].id +"'></div>"
-			text1 += "<div class='header'>";
-			// text1 += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + m[i].date + "</small>"
-			text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'> </i>" + m[i].date + "</small>"
-			text1 += "<strong class='primary-font'>" + m[i].sender + "</strong>";
-			text1 += "</div>";
-			text1 += "<p style='text-align: left'>" + m[i].content + "</p>";
-			element.prepend(text1);
+			let str = "";
+			str += "<li id='mess-ip" + m[i].id + "' class='right clearfix w3-animate-top mess'>";
+			str += "<span class='chat-img pull-right'>";
+			str += "<img src='./img/" + m[i].sender.substring(0, 2).toUpperCase() + "_sender.png" + "' alt='User Avatar' class='img-circle' />";
+			str += "</span>";
+			str += "<div class='chat-body clearfix'>";
+			str += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
+			str += "<input type='checkbox' name='messip[]' value='"+ m[i].id +"'></div>"
+			str += "<div class='header'>";
+			// str += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + m[i].date + "</small>"
+			str += "<small class='pull-left text-muted'><i class='fa fa-clock'> </i>" + m[i].date + "</small>"
+			str += "<strong class='primary-font'>" + m[i].sender + "</strong>";
+			str += "</div>";
+			str += "<p style='text-align: left'>" + m[i].content + "</p>";
+			element.prepend(str);
 		}
 		iphone.clearNewMess();
 		cancelIP();
@@ -292,19 +183,19 @@ function sent(idElement, deviceName, classElement, sender, receiver) {
 	ib.reverse();
 
 	for(let i = 0; i < ib.length; i++){
-		let text1 = "";
-		text1 += "<li class='left clearfix'>";
-		text1 += "<span class='chat-img pull-left'>";
-		text1 += "<img src='./img/" + deviceName + ".png' alt='User Avatar' class='img-circle' />";
-		text1 += "</span>";
-		text1 += "<div class='chat-body clearfix'>";
-		text1 += "<div class='header'>";
-		text1 += "<strong class='primary-font'>" + this.ib[i].receiver + "</strong>";
-		// text1 += "<small class='pull-right text-muted'><span class='glyphicon glyphicon-time'></span>" + this.ib[i].date + "</small>"
-		text1 += "<small class='pull-right text-muted'><i class='fa fa-clock'></i>" + this.ib[i].date + "</small>"
-		text1 += "</div>";
-		text1 += "<p>" + this.ib[i].content + "</p>";
-		eName.append(text1);
+		let str = "";
+		str += "<li class='left clearfix'>";
+		str += "<span class='chat-img pull-left'>";
+		str += "<img src='./img/" + deviceName + ".png' alt='User Avatar' class='img-circle' />";
+		str += "</span>";
+		str += "<div class='chat-body clearfix'>";
+		str += "<div class='header'>";
+		str += "<strong class='primary-font'>" + this.ib[i].receiver + "</strong>";
+		// str += "<small class='pull-right text-muted'><span class='glyphicon glyphicon-time'></span>" + this.ib[i].date + "</small>"
+		str += "<small class='pull-right text-muted'><i class='fa fa-clock'></i>" + this.ib[i].date + "</small>"
+		str += "</div>";
+		str += "<p>" + this.ib[i].content + "</p>";
+		eName.append(str);
 	}
 }
 
@@ -324,36 +215,36 @@ function showAllMessageNO(idElement, deviceName, classElement) {
 
 	if (newMess.length > 0) {
 		for(let i = 0; i < newMess.length; i++){
-			let text1 = "";
+			let str = "";
 			if(this.newMess[i].sender == deviceName) {
-				text1 += "<li id='mess-no" + newMess[i].id + "' class='left clearfix w3-animate-top mess'>";
-				text1 += "<span class='chat-img pull-left'>";
-				text1 += "<img src='./img/" + this.newMess[i].receiver.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
-				text1 += "</span>";
-				text1 += "<div class='chat-body clearfix'>";
-				text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
-				text1 += "<input type='checkbox' name='messno[]' onclick='messChecked();' value='"+ newMess[i].id +"'></div>"
-				text1 += "<div class='header'>";
-				text1 += "<strong class='primary-font'>" + this.newMess[i].receiver + "</strong>";
-				// text1 += "<small class='pull-right text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
-				text1 += "<small class='pull-right text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
-				text1 += "</div>";
-				text1 += "<p>" + this.newMess[i].content + "</p>";
+				str += "<li id='mess-no" + newMess[i].id + "' class='left clearfix w3-animate-top mess'>";
+				str += "<span class='chat-img pull-left'>";
+				str += "<img src='./img/" + this.newMess[i].receiver.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
+				str += "</span>";
+				str += "<div class='chat-body clearfix'>";
+				str += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
+				str += "<input type='checkbox' name='messno[]' onclick='messChecked();' value='"+ newMess[i].id +"'></div>"
+				str += "<div class='header'>";
+				str += "<strong class='primary-font'>" + this.newMess[i].receiver + "</strong>";
+				// str += "<small class='pull-right text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
+				str += "<small class='pull-right text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
+				str += "</div>";
+				str += "<p>" + this.newMess[i].content + "</p>";
 			}
 			else {
-				text1 += "<li id='mess-no" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
-				text1 += "<span class='chat-img pull-right'>";
-				text1 += "<img src='./img/" + this.newMess[i].sender.substring(0, 2).toUpperCase() + "_sender.png' alt='User Avatar' class='img-circle' />";
-				text1 += "</span>";
-				text1 += "<div class='chat-body clearfix'>";
-				text1 += "<div class='header'>";
-				// text1 += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
-				text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
-				text1 += "<strong class='primary-font'>" + this.newMess[i].sender + "</strong>";
-				text1 += "</div>";
-				text1 += "<p style='text-align: left'>" + this.newMess[i].content + "</p>";
+				str += "<li id='mess-no" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
+				str += "<span class='chat-img pull-right'>";
+				str += "<img src='./img/" + this.newMess[i].sender.substring(0, 2).toUpperCase() + "_sender.png' alt='User Avatar' class='img-circle' />";
+				str += "</span>";
+				str += "<div class='chat-body clearfix'>";
+				str += "<div class='header'>";
+				// str += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
+				str += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
+				str += "<strong class='primary-font'>" + this.newMess[i].sender + "</strong>";
+				str += "</div>";
+				str += "<p style='text-align: left'>" + this.newMess[i].content + "</p>";
 			}
-			eName.append(text1);
+			eName.append(str);
 		}
 	}
 	changeBackgroundColorNO('all');
@@ -376,38 +267,38 @@ function showAllMessageIP(idElement, deviceName, classElement) {
 
 	if (newMess.length > 0) {
 		for(let i = 0; i < this.newMess.length; i++){
-			let text1 = "";
+			let str = "";
 			if(this.newMess[i].sender == deviceName) {
-				text1 += "<li id='mess-ip" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
-				text1 += "<span class='chat-img pull-right'>";
-				text1 += "<img src='./img/" + this.newMess[i].receiver.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
-				text1 += "</span>";
-				text1 += "<div class='chat-body clearfix'>";
-				text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
-				text1 += "<input type='checkbox' name='messAllip[]' onclick='messChecked();' value='"+ newMess[i].id +"'></div>"
-				text1 += "<div class='header'>";
-				// text1 += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
-				text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
-				text1 += "<strong class='primary-font'>" + this.newMess[i].receiver + "</strong>";
-				text1 += "</div>";
-				text1 += "<p style='text-align: left'>" + this.newMess[i].content + "</p>";
-				eName.prepend(text1);
+				str += "<li id='mess-ip" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
+				str += "<span class='chat-img pull-right'>";
+				str += "<img src='./img/" + this.newMess[i].receiver.substring(0, 2).toUpperCase() + "_receiver.png' alt='User Avatar' class='img-circle' />";
+				str += "</span>";
+				str += "<div class='chat-body clearfix'>";
+				str += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
+				str += "<input type='checkbox' name='messAllip[]' onclick='messChecked();' value='"+ newMess[i].id +"'></div>"
+				str += "<div class='header'>";
+				// str += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
+				str += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
+				str += "<strong class='primary-font'>" + this.newMess[i].receiver + "</strong>";
+				str += "</div>";
+				str += "<p style='text-align: left'>" + this.newMess[i].content + "</p>";
+				eName.prepend(str);
 			}
 			else {
-				text1 += "<li id='mess-ip" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
-				text1 += "<span class='chat-img pull-right'>";
-				text1 += "<img src='./img/" + newMess[i].sender.substring(0, 2).toUpperCase() + "_sender.png' alt='User Avatar' class='img-circle' />";
-				text1 += "</span>";
-				text1 += "<div class='chat-body clearfix'>";
-				text1 += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
-				text1 += "<input type='checkbox' name='messAllip[]' onclick='messChecked();' value='"+ newMess[i].id +"'></div>"
-				text1 += "<div class='header'>";
-				// text1 += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
-				text1 += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
-				text1 += "<strong class='primary-font'>" + this.newMess[i].sender + "</strong>";
-				text1 += "</div>";
-				text1 += "<p style='text-align: left'>" + this.newMess[i].content + "</p>";
-				eName.prepend(text1);
+				str += "<li id='mess-ip" + newMess[i].id + "' class='right clearfix w3-animate-top mess'>";
+				str += "<span class='chat-img pull-right'>";
+				str += "<img src='./img/" + newMess[i].sender.substring(0, 2).toUpperCase() + "_sender.png' alt='User Avatar' class='img-circle' />";
+				str += "</span>";
+				str += "<div class='chat-body clearfix'>";
+				str += "<div class='divhode' style='width: 30px; line-height: 50px; float: left;'>";
+				str += "<input type='checkbox' name='messAllip[]' onclick='messChecked();' value='"+ newMess[i].id +"'></div>"
+				str += "<div class='header'>";
+				// str += "<small class='pull-left text-muted'><span class='glyphicon glyphicon-time'></span>" + this.newMess[i].date + "</small>"
+				str += "<small class='pull-left text-muted'><i class='fa fa-clock'></i>" + this.newMess[i].date + "</small>"
+				str += "<strong class='primary-font'>" + this.newMess[i].sender + "</strong>";
+				str += "</div>";
+				str += "<p style='text-align: left'>" + this.newMess[i].content + "</p>";
+				eName.prepend(str);
 			}
 		}
 	}
@@ -579,6 +470,9 @@ function showHomeIP(){
 	$("#IPHONE .div-inbox").css("display", 'none');
 	$("#IPHONE .div-sent").css("display", 'none');
 	$("#IPHONE .div-all").css("display", 'none');
+	$("#IPHONE .div-map").css("display", 'none');
+	$("#IPHONE .div-web").css("display", 'none');
+	$("#IPHONE .div-camera").css("display", 'none');
 	$("#IPHONE .card").css("visibility", 'hidden');
 	$("#iphone-draggable-home").css("display", "none");	
 	$("#iphone-draggable-home").css("background-color", "#fff");	
@@ -588,6 +482,8 @@ function showHomeIP(){
 	$("#IPHONE .txt-battery").css("color", "#fff");	
 	$("#IPHONE .un-check-all").css("display", 'none');
     $("#IPHONE .select-all").css("display", 'block');
+	$("#IPHONE .panel-primary").css('background', 'rgba(0, 0, 0, 0)');
+	stopCamera();
 	cancelIP();
 }
 
@@ -731,7 +627,146 @@ function actionClickInboxIP(elementId) {
 }
 
 
-actionClickAllIP('#IPHONE .button-home');
+function openMap() {
+	let mapFrame = $("#mapFrame");
+
+	let url = 'https://maps.google.com/maps?hl=en&q=28 Nguyễn Tri Phương&t=&z=15&ie=UTF8&iwloc=B&output=embed';
+
+	mapFrame.attr('src', url)
+
+	$("#IPHONE .div-map").css("display", 'block');
+	$("#IPHONE .div-camera").css("display", 'none');
+	$("#IPHONE .div-web").css("display", 'none');
+	$("#IPHONE .div-inbox").css("display", 'none');
+	$("#IPHONE .div-compose").css("display", 'none');
+	$("#IPHONE .div-sent").css("display", 'none');
+	$("#IPHONE .div-all").css("display", 'none');
+	$("#IPHONE .home-menu").css("display", 'none');
+	$("#IPHONE .card").css("visibility", 'visible');
+	$("#IPHONE #iphone-draggable-home").css("display", "block");
+}
+
+function handlerOpenMap(elementId) {
+	let longpress = false;
+
+    $(elementId).on('click', function (e) {
+        (longpress) ?  e.preventDefault() : openMap();
+    });
+    
+    let startTime, endTime;
+    $(elementId).on('mousedown', function () {
+        startTime = new Date().getTime();
+    });
+
+    $(elementId).on('mouseup', function () {
+        endTime = new Date().getTime();
+
+        if (endTime - startTime < 200) {
+            longpress = false;
+        } else {
+            longpress = true;
+        }
+    });
+}
+
+handlerOpenMap("#IPHONE .home-map");
+
+
+function openCamera() {
+	$("#IPHONE .div-camera").css("display", 'block');
+	$("#IPHONE .div-map").css("display", 'none');
+	$("#IPHONE .div-web").css("display", 'none');
+	$("#IPHONE .div-inbox").css("display", 'none');
+	$("#IPHONE .div-compose").css("display", 'none');
+	$("#IPHONE .div-sent").css("display", 'none');
+	$("#IPHONE .div-all").css("display", 'none');
+	$("#IPHONE .home-menu").css("display", 'none');
+	$("#IPHONE .card").css("visibility", 'visible');
+	$("#IPHONE #iphone-draggable-home").css("display", "block");
+
+	$("#IPHONE .panel-primary").css('background', 'rgba(0, 0, 0, 0.7)');
+}
+
+function handlerOpenCamera(elementId) {
+	let longpress = false;
+
+    $(elementId).on('click', function (e) {
+        (longpress) ?  e.preventDefault() : openCamera();
+    });
+    
+    let startTime, endTime;
+    $(elementId).on('mousedown', function () {
+        startTime = new Date().getTime();
+    });
+
+    $(elementId).on('mouseup', function () {
+        endTime = new Date().getTime();
+
+        if (endTime - startTime < 200) {
+            longpress = false;
+        } else {
+            longpress = true;
+        }
+    });
+}
+
+handlerOpenCamera("#IPHONE .home-camera");
+
+
+
+function openIframeWeb() {
+	let txtWeb = $("#txtWeb").val();
+
+	let webFrame = $("#webFrame");
+
+	let url = 'https://' + txtWeb;
+
+	webFrame.attr('src', url)
+
+	$("#preWeb").css("display", 'none');
+	$("#webFrame").css("display", 'block');
+
+}
+
+function openSafari() {
+	$("#IPHONE .div-web").css("display", 'block');
+	$("#IPHONE .div-map").css("display", 'none');
+	$("#IPHONE .div-camera").css("display", 'none');
+	$("#IPHONE .div-inbox").css("display", 'none');
+	$("#IPHONE .div-compose").css("display", 'none');
+	$("#IPHONE .div-sent").css("display", 'none');
+	$("#IPHONE .div-all").css("display", 'none');
+	$("#IPHONE .home-menu").css("display", 'none');
+	$("#IPHONE .card").css("visibility", 'visible');
+	$("#IPHONE #iphone-draggable-home").css("display", "block");
+}
+
+function handlerOpenSafari(elementId) {
+	let longpress = false;
+
+    $(elementId).on('click', function (e) {
+        (longpress) ?  e.preventDefault() : openSafari();
+    });
+    
+    let startTime, endTime;
+    $(elementId).on('mousedown', function () {
+        startTime = new Date().getTime();
+    });
+
+    $(elementId).on('mouseup', function () {
+        endTime = new Date().getTime();
+
+        if (endTime - startTime < 200) {
+            longpress = false;
+        } else {
+            longpress = true;
+        }
+    });
+}
+
+handlerOpenSafari("#dragSafari");
+
+actionClickAllIP('#IPHONE .all-message');
 
 function actionClickAllIP(elementId) {
 	let longpress = false;
